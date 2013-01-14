@@ -1,0 +1,11 @@
+require:
+    - play ]2.0,)
+    - repositories.thirdparty -> im4java 1.1.0
+
+repositories:
+
+    - im4java:
+        type:       http
+        artifact:   http://maven.cedarsoft.com/content/repositories/thirdparty/[module]/[module]/[revision]/[module]-[revision].[ext]
+        contains:
+            - repositories.thirdparty -> *

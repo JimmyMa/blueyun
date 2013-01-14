@@ -1,0 +1,17 @@
+logs
+project/project
+project/target
+public/imgs/cycling
+public/imgs/users
+target
+tmp
+.history
+dist
+.svn
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID

@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.GlobalApp.index()
+
+# Authorization
+POST   /login                       controllers.GlobalApp.authenticate()
+
+# User
+POST   /user                        controllers.Application.addUser()
+
+# Gallery
+GET    /gallery/cats/:catid          controllers.gallery.Gallery.getCategoriesByParentId(catid: Long)
+GET    /:userid/gallery/cats/:catid  controllers.gallery.Gallery.getSecuredCategoriesByParentId(userid: Long, catid: Long)
+GET    /images/cat/:catId            controllers.gallery.Gallery.getImagesByCatId(catId: Long)
+POST   /gallery/cat                  controllers.gallery.Gallery.createCategory()
+POST   /gallery/cat/:catId           controllers.gallery.Gallery.updateCategory(catId: Long)
+POST   /gallery/img/:imgId           controllers.gallery.Gallery.updateImage(imgId: Long)
+POST   /images/upload/:catId         controllers.gallery.Gallery.upload(catId: Long)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

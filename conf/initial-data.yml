@@ -1,0 +1,1777 @@
+
+# Users
+
+users:
+
+    - !!models.User
+        id:         1
+        email:      jimmy@abc.com
+        name:       Jimmy Ma
+        password:   abc
+
+# Categories
+
+categories:
+
+    - !!models.gallery.Category
+        id:         1
+        title:      海南自行车游
+        description: 海南自行车7日游
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_IMAG0204.jpg
+        parentid:    0
+        user:       !!models.User
+                        id: 1
+                        
+                       
+    - !!models.gallery.Category
+        id:         2
+        title:      第一天
+        description: 从海口到三江镇
+        thumbnail:   /assets/imgs/cycling/thumbnail/tn_IMAG0184.jpg
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+
+    - !!models.gallery.Category
+        id:         3
+        title:      第二天
+        description: 三江镇 -- 谭牛镇 -- 清澜
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_IMAG0349.jpg
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+                        
+    - !!models.gallery.Category
+        id:         4
+        title:      第三天
+        description: 清澜 -- 琼海 -- 博鳌
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_IMAG0359.jpg
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+                        
+    - !!models.gallery.Category
+        id:         5
+        title:      第四天
+        description: 博鳌 -- 兴隆
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_IMAG0446.jpg
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+                        
+    - !!models.gallery.Category
+        id:         6
+        title:      第五天
+        description: 兴隆 -- 海棠湾镇
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_IMAG0460.jpg
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+                        
+    - !!models.gallery.Category
+        id:         7
+        title:      第六天
+        description: 海棠湾镇 -- 三亚湾
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_IMAG0483.jpg
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+                        
+    - !!models.gallery.Category
+        id:         8
+        title:      第七天
+        description: 大东海
+        thumbnail: /assets/imgs/cycling/thumbnail/tn_P1030911.JPG
+        parentid:    1
+        user:       !!models.User
+                        id: 1
+                        
+
+images:
+       - !!models.gallery.Image
+         id:         1
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/0.png
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_0.png
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         2
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/1.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_1.PNG
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         3
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0184.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0184.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         4
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0185.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0185.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         5
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0186.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0186.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         6
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0191.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0191.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         7
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0193.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0193.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         8
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0196.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0196.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         9
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0200.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0200.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         10
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0202.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0202.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         11
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0204.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0204.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         12
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0208.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0208.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         13
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0210.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0210.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         14
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0215.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0215.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         15
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0217.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0217.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         16
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0218.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0218.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         17
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0222.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0222.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         18
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0225.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0225.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         19
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/IMAG0226.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0226.jpg
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         20
+         title:      第一天
+         description:  2012/12/18 海口 -- 三江镇
+         location:    /assets/imgs/cycling/day1/P1030461.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030461.JPG
+         category:     !!models.gallery.Category
+                          id: 2
+         user:       !!models.User
+                          id: 1
+
+       - !!models.gallery.Image
+         id:         21
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/1.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_1.PNG
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         22
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/2.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_2.PNG
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         23
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0232.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0232.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         24
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0236.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0236.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         25
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0249.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0249.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         26
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0251.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0251.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         27
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0262.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0262.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         28
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0264.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0264.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         29
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0268.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0268.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         30
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0284.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0284.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         31
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0297.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0297.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         32
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0299.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0299.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         33
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0300.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0300.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         34
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0309.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0309.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         35
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0313.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0313.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         36
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0315.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0315.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         37
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0317.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0317.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         38
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0324.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0324.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         39
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0332.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0332.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         40
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0333.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0333.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         41
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0340.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0340.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         42
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0341.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0341.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         43
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0342.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0342.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         44
+         title:      第二天
+         description:  2012/12/19 三江镇 -- 谭牛镇 -- 清澜
+         location:    /assets/imgs/cycling/day2/IMAG0349.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0349.jpg
+         category:     !!models.gallery.Category
+                          id: 3
+         user:       !!models.User
+                          id: 1
+
+       - !!models.gallery.Image
+         id:         45
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/1.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_1.PNG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         46
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/2.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_2.PNG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         47
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0359.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0359.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         48
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0361.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0361.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         49
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0362.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0362.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         50
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0365.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0365.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         51
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0368.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0368.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         52
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0373.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0373.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         53
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0378.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0378.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         54
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0380.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0380.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         55
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0389.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0389.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         56
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0390.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0390.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         57
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/IMAG0437.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0437.jpg
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         58
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030475.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030475.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         59
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030553.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030553.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         60
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030615.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030615.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         61
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030616.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030616.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         62
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030626.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030626.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         63
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030627.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030627.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         64
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030628.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030628.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         65
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030642.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030642.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         66
+         title:      第三天
+         description:  2012/12/20 清澜 -- 琼海 -- 博鳌
+         location:    /assets/imgs/cycling/day3/P1030648.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030648.JPG
+         category:     !!models.gallery.Category
+                          id: 4
+         user:       !!models.User
+                          id: 1
+
+       - !!models.gallery.Image
+         id:         67
+         title:      第四天
+         description:  2012/12/21 博鳌 -- 兴隆
+         location:    /assets/imgs/cycling/day4/IMAG0439.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0439.jpg
+         category:     !!models.gallery.Category
+                          id: 5
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         68
+         title:      第四天
+         description:  2012/12/21 博鳌 -- 兴隆
+         location:    /assets/imgs/cycling/day4/IMAG0445.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0445.jpg
+         category:     !!models.gallery.Category
+                          id: 5
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         69
+         title:      第四天
+         description:  2012/12/21 博鳌 -- 兴隆
+         location:    /assets/imgs/cycling/day4/IMAG0446.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0446.jpg
+         category:     !!models.gallery.Category
+                          id: 5
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         70
+         title:      第四天
+         description:  2012/12/21 博鳌 -- 兴隆
+         location:    /assets/imgs/cycling/day4/IMAG0453.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0453.jpg
+         category:     !!models.gallery.Category
+                          id: 5
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         71
+         title:      第四天
+         description:  2012/12/21 博鳌 -- 兴隆
+         location:    /assets/imgs/cycling/day4/P1030663.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030663.JPG
+         category:     !!models.gallery.Category
+                          id: 5
+         user:       !!models.User
+                          id: 1
+
+       - !!models.gallery.Image
+         id:         72
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/1.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_1.PNG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         73
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/2.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_2.PNG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         74
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0460.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0460.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         75
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0462.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0462.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         76
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0463.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0463.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         77
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0464.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0464.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         78
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0465.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0465.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         79
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0466.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0466.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         80
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0467.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0467.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         81
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0468.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0468.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         82
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0469.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0469.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         83
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0470.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0470.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         84
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0471.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0471.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         85
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0472.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0472.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         86
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0473.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0473.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         87
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0474.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0474.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         88
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0475.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0475.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         89
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0477.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0477.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         90
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0478.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0478.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         91
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0479.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0479.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         92
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0480.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0480.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         93
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/IMAG0481.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0481.jpg
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         94
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030666.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030666.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         95
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030667.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030667.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         96
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030668.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030668.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         97
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030670.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030670.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         98
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030671.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030671.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         99
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030672.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030672.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         100
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030673.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030673.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         101
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030674.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030674.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         102
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030675.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030675.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         103
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030676.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030676.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         104
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030686.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030686.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         105
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030687.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030687.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         106
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030688.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030688.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         107
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030697.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030697.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         108
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030700.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030700.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         109
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030701.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030701.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         110
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030702.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030702.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         111
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030703.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030703.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         112
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030704.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030704.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         113
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030705.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030705.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         114
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030706.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030706.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         115
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030707.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030707.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         116
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030708.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030708.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         117
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030709.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030709.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         118
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030710.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030710.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         119
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030712.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030712.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         120
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030718.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030718.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         121
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030720.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030720.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         122
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030721.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030721.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         123
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030723.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030723.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         124
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030724.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030724.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         125
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030728.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030728.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         126
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030729.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030729.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         127
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030732.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030732.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         128
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030735.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030735.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         129
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030736.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030736.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         130
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030737.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030737.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         131
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030738.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030738.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         132
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030744.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030744.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         133
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030776.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030776.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         134
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030789.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030789.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         135
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030800.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030800.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         136
+         title:      第五天
+         description:  2012/12/22 兴隆 -- 海棠湾镇
+         location:    /assets/imgs/cycling/day5/P1030801.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030801.JPG
+         category:     !!models.gallery.Category
+                          id: 6
+         user:       !!models.User
+                          id: 1
+
+       - !!models.gallery.Image
+         id:         137
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/1.PNG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_1.PNG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         138
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/IMAG0482.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0482.jpg
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         139
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/IMAG0483.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0483.jpg
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         140
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/IMAG0487.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0487.jpg
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         141
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/IMAG0489.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0489.jpg
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         142
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/IMAG0494.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0494.jpg
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         143
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030805.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030805.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         144
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030807.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030807.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         145
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030808.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030808.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         146
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030813.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030813.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         147
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030815.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030815.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         148
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030820.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030820.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         149
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030822.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030822.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         150
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030828.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030828.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         151
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030829.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030829.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         152
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030832.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030832.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         153
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030833.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030833.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         154
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030837.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030837.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         155
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030855.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030855.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         156
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030863.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030863.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         157
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030868.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030868.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         158
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030877.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030877.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         159
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030889.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030889.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         160
+         title:      第六天
+         description:  2012/12/23 海棠湾镇 -- 三亚湾
+         location:    /assets/imgs/cycling/day6/P1030890.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030890.JPG
+         category:     !!models.gallery.Category
+                          id: 7
+         user:       !!models.User
+                          id: 1
+
+       - !!models.gallery.Image
+         id:         161
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/IMAG0495.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0495.jpg
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         162
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/IMAG0496.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0496.jpg
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         163
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/IMAG0499.jpg
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_IMAG0499.jpg
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         164
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/P1030911.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030911.JPG
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         165
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/P1030928.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030928.JPG
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         166
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/P1030934.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030934.JPG
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         167
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/P1030935.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030935.JPG
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+       - !!models.gallery.Image
+         id:         168
+         title:      第七天
+         description:  2012/12/24 大东海
+         location:    /assets/imgs/cycling/day7/P1030942.JPG
+         thumbnail:    /assets/imgs/cycling/thumbnail/tn_P1030942.JPG
+         category:     !!models.gallery.Category
+                          id: 8
+         user:       !!models.User
+                          id: 1
+

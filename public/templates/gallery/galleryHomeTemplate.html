@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/assets/css/bootstrap-image-gallery.css">
+<link href="/assets/js/libs/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
+<ul class="breadcrumb">
+  <li><a href="#/gallery/cat/0">相册</a> <%= needDivider ? "<span class='divider'>/</span>" : ""%></li>
+<%var i = 0;
+_.each( catParents, function(parent) { %>
+  <li><a href="#/gallery/cat/<%=parent.id%>"><%=parent.title%></a> <span class="divider">/</span></li>
+<%});%>
+  <li><a href="#/gallery/cat/<%=currentCat.id%>"><%=currentCat.title%></a></li>
+</ul>
+<div id="gallerymain">
+<%var i = 0;
+_.each( categories, function(category) { %>
+<%if ( i % 4 == 0 ) {%>
+<div class="row-fluid">
+	<ul class="thumbnails container">
+<%}
+i ++;
+%>
+	  <li class="span3"><a href="#/gallery/cat/<%=category.id%>">
+	    <div class="thumbnail">
+	      <img src="<%=category.thumbnail%>" alt="" class="img-polaroid">
+	      <h4><%=category.title%></h4>
+	      <p><%=category.description%></p>
+	    </div></a>
+	  </li>
+<%if ( i % 4 == 0 ) {%>
+	</ul>
+</div>
+<%}%>
+<%}); %>
+<%if ( i % 4 != 0 ) {%>
+	</ul>
+</div>
+<%}%>
+
+<div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
+
+<%i = 0;
+_.each( images, function(image) { %>
+<%if ( i % 4 == 0 ) {%>
+<div class="row-fluid">
+	<ul class="thumbnails container">
+<%}
+i ++;
+%>
+	  <li class="span3">
+	    <div class="thumbnail">
+	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery">
+	         <img src="<%=image.thumbnail%>" alt="" class="img-polaroid">
+	      </a>
+	      <h5><a class="imgtitle" data-url="/gallery/img/<%=image.id%>"><%=image.title == null ? "空" : image.title%></a></h5>
+	      <p><a class="imgdes" data-name="" data-url="/gallery/img/<%=image.id%>"><%=image.description == null ? "空" : image.description%></a></p>
+	    </div>
+	  </li>
+<%if ( i % 4 == 0 ) {%>
+	</ul>
+</div>
+<%}%>
+<%}); %>
+<%if ( i % 4 != 0 ) {%>
+	</ul>
+</div>
+<%}%>
+</div>
+</div>
+
+<div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3 class="modal-title"></h3>
+    </div>
+    <div class="modal-body"><div class="modal-image"></div></div>
+    <div class="modal-footer">
+ 		<button id="toggle-fullscreen" class="btn btn-primary" data-toggle="button">全屏</button>
+        <a class="btn modal-download" target="_blank">
+            <i class="icon-download"></i>
+            <span>下载</span>
+        </a>
+        <a class="btn btn-success modal-play modal-slideshow" data-slideshow="5000">
+            <i class="icon-play icon-white"></i>
+            <span>幻灯片播放</span>
+        </a>
+        <a class="btn btn-info modal-prev">
+            <i class="icon-arrow-left icon-white"></i>
+            <span>上一张</span>
+        </a>
+        <a class="btn btn-primary modal-next">
+            <span>下一张</span>
+            <i class="icon-arrow-right icon-white"></i>
+        </a>
+    </div>
+</div>
