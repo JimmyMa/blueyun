@@ -7,9 +7,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import models.S3File;
+import plugins.S3Plugin;
 import controllers.common.Util;
 
 public class FileUpload {
+	
+	public static S3Plugin plugin = new S3Plugin(null);
 	
 //	static String RootFolder = "D:/Projects/Mine/MyTodo/BlueYun/public/imgs/users/";
 	static String RootFolder = "/tmp/imgs/users/";
