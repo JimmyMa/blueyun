@@ -36,7 +36,12 @@ public class Image extends Model {
     
     public static Model.Finder<Long,Image> find = new Model.Finder(Long.class, Image.class);
     
-
+    public static List<Image> findByCatId(Long category) {
+        return Image.find.where()
+                .eq("category.id", category)
+                .findList();
+    }
+    
     public static List<Image> findByCatId(Long category, Long userId) {
     	if ( category == -1 ) {
             return Image.find.where()

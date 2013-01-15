@@ -32,7 +32,7 @@ public class Gallery extends Controller {
 	
 	public static Result getCategoriesByParentId( Long id ) {
 		List<Category> cats = Category.findByCatId(id );
-		List<Image> images = Image.findByCatId( id, Secured.getUserId() );
+		List<Image> images = Image.findByCatId( id );
 
 		if ( id == 0 ) {
 			Category cat = new Category();
