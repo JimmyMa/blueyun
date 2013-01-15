@@ -1,4 +1,4 @@
-package controllers;
+package models;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -18,7 +18,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 public class S3File extends Model {
 
     @Id
-    public UUID id;
+    public Long id;
 
     private String bucket;
 
@@ -27,8 +27,8 @@ public class S3File extends Model {
     @Transient
     public File file;
 
-    public URL getUrl() throws MalformedURLException {
-        return new URL("https://s3.amazonaws.com/" + bucket + "/" + getActualFileName());
+    public String getUrl() {
+        return "https://s3.amazonaws.com/" + bucket + "/" + getActualFileName();
     }
 
     private String getActualFileName() {
@@ -44,7 +44,9 @@ public class S3File extends Model {
         else {
             this.bucket = S3Plugin.s3Bucket;
             
-            super.save(); // assigns an id
+            id ++;
+            
+//            super.save(); // assigns an id
 
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, getActualFileName(), file);
             putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead); // public for all

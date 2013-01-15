@@ -1,13 +1,16 @@
 package models;
 
-import java.util.*;
-import javax.persistence.*;
+import java.util.List;
 
-import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.avaje.ebean.*;
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+import play.data.format.Formats;
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
 
 /**
  * User entity managed by Ebean
@@ -25,6 +28,7 @@ public class User extends Model {
     @Constraints.Required
     public String name;
     
+    @JsonIgnore
     @Constraints.Required
     public String password;
     

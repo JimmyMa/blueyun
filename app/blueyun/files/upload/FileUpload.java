@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import models.S3File;
 import controllers.common.Util;
 
 public class FileUpload {
@@ -14,22 +15,36 @@ public class FileUpload {
 	static String RootFolder = "/tmp/imgs/users/";
 
 	public static FileUploadResult uploadFile( File file, String fileName, String contentType, long userid ) throws IOException {
-		
+		FileUploadResult result = new  FileUploadResult();
+		UploadedFile uploadedFile = new UploadedFile();
+
 		File targetFolder = new File( RootFolder + userid );
 		
         BufferedImage im = ImageIO.read(file);
-		String thumnailName = Util.createThumbnail( im, fileName, targetFolder, contentType );
+        
+		File targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 1000 );
+		if ( targetFile != null ) {
+			S3File s3File = new S3File();
+			s3File.file = targetFile;
+			s3File.name = fileName;
+			s3File.save();
+			uploadedFile.url = s3File.getUrl();
+			uploadedFile.size = targetFile.length();
+		}
+
+		targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 250 );
+		if ( targetFile != null ) {
+			S3File s3File = new S3File();
+			s3File.file = targetFile;
+			s3File.name = fileName;
+			s3File.save();
+			uploadedFile.thumbnail_url = s3File.getUrl();
+		}
+
 		
-		Util.scaleImage( im, fileName, targetFolder, contentType );
-		
-		FileUploadResult result = new  FileUploadResult();
-		UploadedFile uploadedFile = new UploadedFile();
 		
 		uploadedFile.name = fileName;
-		uploadedFile.size = file.length();
-		uploadedFile.url =  "/assets/imgs/users/" + userid + "/" + fileName;
-		uploadedFile.thumbnail_url = "/assets/imgs/users/" + userid + "/" + thumnailName;
-		uploadedFile.delete_url = "delete_url/" + fileName;
+		uploadedFile.delete_url = "delete";
 		uploadedFile.delete_type = "DELETE";
 		result.files.add(uploadedFile);
 		
