@@ -149,6 +149,7 @@ public class Gallery extends Controller {
 		    try {
 		    	result = FileUpload.uploadFile(file, fileName, contentType, Secured.getUserId());
 		    } catch ( Exception e ) {
+		    	e.printStackTrace();
 		    	return badRequest( ControllersUtils.getErrorMessage( "Missing file!" ) );
 		    }
 		    Image img = new Image();

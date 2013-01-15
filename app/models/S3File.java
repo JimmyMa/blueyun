@@ -18,7 +18,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 public class S3File extends Model {
 
     @Id
-    public Long id;
+    public Long id = new Long(0);
 
     private String bucket;
 
