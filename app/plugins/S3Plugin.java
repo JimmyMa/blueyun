@@ -41,7 +41,8 @@ public class S3Plugin extends Plugin {
 
     @Override
     public boolean enabled() {
-    	Logger.info("Using S3 Bucket111133: " + s3Bucket);
+    	Logger.info("Using S3 Bucket111133: " + application.configuration().getString(AWS_ACCESS_KEY) + ":" 
+    			+ application.configuration().getString(AWS_SECRET_KEY) + ":" + application.configuration().getString(AWS_S3_BUCKET));
         return (application.configuration().keys().contains(AWS_ACCESS_KEY) &&
                 application.configuration().keys().contains(AWS_SECRET_KEY) &&
                 application.configuration().keys().contains(AWS_S3_BUCKET));

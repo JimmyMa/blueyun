@@ -14,7 +14,6 @@ public class Global extends GlobalSettings {
     
     public void onStart(Application app) {
         InitialData.insert(app);
-        new S3Plugin(app);
         Logger.info( "Root: " + System.getProperty("user.dir") );
     }
     
