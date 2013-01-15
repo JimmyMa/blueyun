@@ -26,9 +26,9 @@ public class S3Plugin extends Plugin {
 
     @Override
     public void onStart() {
-        String accessKey = "AKIAIBNLD2INFLTDPRKA";//application.configuration().getString(AWS_ACCESS_KEY);
-        String secretKey = "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";//application.configuration().getString(AWS_SECRET_KEY);
-        s3Bucket = "com.blueyun.s3";//application.configuration().getString(AWS_S3_BUCKET);
+        String accessKey = application.configuration().getString(AWS_ACCESS_KEY);
+        String secretKey = application.configuration().getString(AWS_SECRET_KEY);
+        s3Bucket = application.configuration().getString(AWS_S3_BUCKET);
         
         if ((accessKey != null) && (secretKey != null)) {
             AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
@@ -41,11 +41,10 @@ public class S3Plugin extends Plugin {
 
     @Override
     public boolean enabled() {
-//    	Logger.info("Using S3 Bucket111133: " + application.configuration().getString(AWS_ACCESS_KEY) + ":" 
-//    			+ application.configuration().getString(AWS_SECRET_KEY) + ":" + application.configuration().getString(AWS_S3_BUCKET));
-//        return (application.configuration().keys().contains(AWS_ACCESS_KEY) &&
-//                application.configuration().keys().contains(AWS_SECRET_KEY) &&
-//                application.configuration().keys().contains(AWS_S3_BUCKET));
-    	return true;
+    	Logger.info("Using S3 Bucket111133: " + application.configuration().getString(AWS_ACCESS_KEY) + ":" 
+    			+ application.configuration().getString(AWS_SECRET_KEY) + ":" + application.configuration().getString(AWS_S3_BUCKET));
+        return (application.configuration().keys().contains(AWS_ACCESS_KEY) &&
+                application.configuration().keys().contains(AWS_SECRET_KEY) &&
+                application.configuration().keys().contains(AWS_S3_BUCKET));
     }
 }
