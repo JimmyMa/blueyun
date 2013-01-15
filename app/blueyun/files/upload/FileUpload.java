@@ -1,19 +1,26 @@
 package blueyun.files.upload;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import controllers.common.Util;
 
 public class FileUpload {
 	
-	static String RootFolder = "D:/Projects/Mine/MyTodo/BlueYun/public/imgs/users/";
+//	static String RootFolder = "D:/Projects/Mine/MyTodo/BlueYun/public/imgs/users/";
+	static String RootFolder = "/tmp/imgs/users/";
 
 	public static FileUploadResult uploadFile( File file, String fileName, String contentType, long userid ) throws IOException {
 		
-		File newFolder = new File( RootFolder + userid );
-		Util.copyFile(file, newFolder, fileName);
-		String thumnailName = Util.createThumbnail( new File(newFolder, fileName ), new File( RootFolder + userid ), contentType );
+		File targetFolder = new File( RootFolder + userid );
+		
+        BufferedImage im = ImageIO.read(file);
+		String thumnailName = Util.createThumbnail( im, fileName, targetFolder, contentType );
+		
+		Util.scaleImage( im, fileName, targetFolder, contentType );
 		
 		FileUploadResult result = new  FileUploadResult();
 		UploadedFile uploadedFile = new UploadedFile();

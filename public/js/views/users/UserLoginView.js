@@ -40,8 +40,8 @@ define([
 		    success: function(data, textStatus, jqXHR){
         	   var userActionsView = new UserActionsView( {model: data} );
          	   userActionsView.render();
-         	   localStorage.setItem('userid', data.id);
-         	   localStorage.setItem('username', data.name);
+         	   sessionStorage.setItem('userid', data.id);
+         	   sessionStorage.setItem('username', data.name);
         	},
         	error: function(){
         	   alert( "asd22" );

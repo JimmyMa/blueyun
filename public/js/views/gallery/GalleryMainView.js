@@ -115,6 +115,7 @@ define([
       },
       
       addCat: function() {
+        $("#gallerymain").unbind();
       	var newCategoryView = new NewCategoryView({category: this.currentCat, el: this.$("#gallerymain")});
       	newCategoryView.render();
       }

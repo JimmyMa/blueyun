@@ -10,7 +10,7 @@ define([
   var NewCategoryView = Backbone.View.extend({
    
     events: {
-      "click #addCategory":  "addCat",
+      "click #addCategory":  "addCategory",
     },
     
     initialize : function() {
@@ -29,7 +29,7 @@ define([
         return this;
       },
       
-     addCat : function() {
+     addCategory : function() {
  		this.category = this.options.category;
         var title = this.$( "#catTitle" ).val();
         var des = this.$( "#catDes" ).val();

@@ -33,12 +33,12 @@ define([
     window.app_router = new AppRouter;
     
     var initPage = function() {
-        if (localStorage.getItem('userid') == null ) {
+        if (sessionStorage.getItem('userid') == null ) {
 	       var userLoginView = new UserLoginView();
 	       userLoginView.render();
 	    } else {
-	       var model = { name: localStorage.getItem('username'),
-	       	 id: localStorage.getItem('userid') 
+	       var model = { name: sessionStorage.getItem('username'),
+	       	 id: sessionStorage.getItem('userid') 
 	       };
 	       var userActionsView = new UserActionsView( {model: model} );
 	       userActionsView.render();
@@ -49,12 +49,14 @@ define([
 
 
     app_router.on('route:showGallery', function (catId) {
+        $("#page").unbind();
         var galleryMainView = new GalleryMainView({catId: catId});
         initPage();
     });
     
     app_router.on('route:showMyGallery', function (catId) {
-        var galleryMainView = new GalleryMainView({catId: catId, userId: localStorage.getItem('userid') });
+        $("#page").unbind();
+        var galleryMainView = new GalleryMainView({catId: catId, userId: sessionStorage.getItem('userid') });
         initPage();
     });
     
@@ -70,12 +72,12 @@ define([
     });
     
     app_router.on('route:exit', function () {
-       localStorage.removeItem('userid');
+       sessionStorage.removeItem('userid');
        window.app_router.navigate("/", {trigger: true});
     });
     
     app_router.on('route:defaultAction', function (actions) {
-     
+        $("#page").unbind();
         var galleryMainView = new GalleryMainView({catId: 0});
         initPage();
 

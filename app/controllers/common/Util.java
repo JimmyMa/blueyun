@@ -42,14 +42,13 @@ public class Util {
 		}
 	}
 	
-	public static String createThumbnail(File file, File folder, String mimetype) throws IOException {
+	public static String createThumbnail(BufferedImage im, String fileName, File folder, String mimetype) throws IOException {
 		if ( !folder.exists() ) {
 			folder.mkdirs();
 		}
-        BufferedImage im = ImageIO.read(file);
         if (im != null) {
             BufferedImage thumb = Scalr.resize(im, 250); 
-            FileOutputStream os = new FileOutputStream(new File(folder, "tn_" + file.getName() ));
+            FileOutputStream os = new FileOutputStream(new File(folder, "tn_" + fileName ));
             if (mimetype.endsWith("png")) {
                 ImageIO.write(thumb, "PNG" , os);
             } else if (mimetype.endsWith("jpeg")) {
@@ -58,7 +57,27 @@ public class Util {
                 ImageIO.write(thumb, "GIF" , os);
             }
             os.close();
-            return "tn_" + file.getName();
+            return "tn_" + fileName;
+        }
+        return null;
+	}
+	
+	public static String scaleImage(BufferedImage im, String fileName, File folder, String mimetype) throws IOException {
+		if ( !folder.exists() ) {
+			folder.mkdirs();
+		}
+        if (im != null) {
+            BufferedImage thumb = Scalr.resize(im, 1000); 
+            FileOutputStream os = new FileOutputStream(new File(folder, fileName ));
+            if (mimetype.endsWith("png")) {
+                ImageIO.write(thumb, "PNG" , os);
+            } else if (mimetype.endsWith("jpeg")) {
+                ImageIO.write(thumb, "jpg" , os);
+            } else {
+                ImageIO.write(thumb, "GIF" , os);
+            }
+            os.close();
+            return fileName;
         }
         return null;
 	}
