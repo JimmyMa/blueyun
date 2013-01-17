@@ -44,7 +44,7 @@ define([
          	   sessionStorage.setItem('username', data.name);
         	},
         	error: function(){
-        	   alert( "asd22" );
+        	   alert( "登陆失败！！" );
       	}});
     
     }

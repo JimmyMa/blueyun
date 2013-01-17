@@ -35,6 +35,7 @@ define([
     window.app_router = new AppRouter;
     
     var initPage = function() {
+        $("#userAction").unbind();
         if (sessionStorage.getItem('userid') == null ) {
 	       var userLoginView = new UserLoginView();
 	       userLoginView.render();

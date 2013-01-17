@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import play.Logger;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
@@ -54,10 +55,14 @@ public class User extends Model {
      * Authenticate a User.
      */
     public static User authenticate(String email, String password) {
-        return find.where()
+        User user = find.where()
             .eq("email", email)
-            .eq("password", password)
             .findUnique();
+        Logger.info("User Login: " + user.password + ": P:" + password);
+        if ( user.password.equals( password ) ) 
+        	return user;
+        else
+        	return null;
     }
     
     // --

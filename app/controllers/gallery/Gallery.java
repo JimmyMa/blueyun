@@ -114,7 +114,17 @@ public class Gallery extends Controller {
 			return badRequest( ControllersUtils.getErrorMessage( "Invalid User" ) );
 		}
     	Category cat = Category.find.byId( catId );
+    	
+    	List<Image> images = Image.findByCatId( catId, userId);
+    	
+    	for ( Image img : images ) {
+        	img.delete();
+        	S3File.delete( img.location );
+        	S3File.delete( img.thumbnail );
+    	}
+    	
     	cat.delete();
+    	
         return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
 	}
 	

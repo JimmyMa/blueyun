@@ -28,7 +28,7 @@ public class GlobalApp extends Controller {
 		Login login = Json.fromJson(vendorJson, Login.class);
         User user = User.authenticate(login.email, login.password);
 		if ( user == null) {
-			Logger.info("User Login: " + login.email + ": P： " + login.password.trim());
+			Logger.info("User Login: " + login.email + ": P:" + login.password.trim());
             return badRequest( ControllersUtils.getErrorMessage( "username or password is not correct!" ) );
         } else {
         	Secured.login( user );
