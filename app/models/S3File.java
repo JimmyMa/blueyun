@@ -2,8 +2,8 @@ package models;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
-import javax.persistence.Id;
 import javax.persistence.Transient;
 
 import play.Logger;
@@ -15,20 +15,18 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 
 import controllers.common.Util;
 
-public class S3File extends Model {
+public class S3File {
 
 	static String RootFolder = "D:/Projects/Mine/MyTodo/BlueYun/public/imgs/users/";
 	
-    @Id
-    public static Long id = new Long(0);
+    public Long id = UUID.randomUUID().getMostSignificantBits();
 
-    private String bucket;
+    private static String bucket = S3Plugin.s3Bucket;
 
     public String name;
     
     public Long userId;
 
-    @Transient
     public File file;
 
     public String getUrl() {
@@ -43,7 +41,6 @@ public class S3File extends Model {
         return userId + "/" + id + "/" + name;
     }
 
-    @Override
     public void save() {
         
         id ++;
@@ -65,15 +62,12 @@ public class S3File extends Model {
         }
     }
 
-    @Override
-    public void delete() {
+    public static void delete(String url) {
         if (S3Plugin.amazonS3 == null) {
             Logger.error("Could not delete because amazonS3 was null");
-            throw new RuntimeException("Could not delete");
         }
         else {
-            S3Plugin.amazonS3.deleteObject(bucket, getActualFileName());
-            super.delete();
+            S3Plugin.amazonS3.deleteObject(bucket, url.substring( url.indexOf( bucket ) + bucket.length() + 1 ) );
         }
     }
 }

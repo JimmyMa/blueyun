@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import models.S3File;
 import models.User;
 import models.gallery.Category;
 import models.gallery.Image;
@@ -123,6 +124,8 @@ public class Gallery extends Controller {
 		}
     	Image img = Image.find.byId( catId );
     	img.delete();
+    	S3File.delete( img.location );
+    	S3File.delete( img.thumbnail );
         return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
 	}
 	
