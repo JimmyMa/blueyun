@@ -16,7 +16,7 @@ define([
 	      if ( this.action == "save" ) {
 	      	  return '/gallery/cat';
 	      } else {
-	          return '/gallery/' + this.userid + '/cat/' + this.catid;
+	          return '/' + this.get( "userId" ) + '/gallery/cat/' + this.id;
 	      }
 	  }
 

@@ -12,13 +12,17 @@ POST   /login                       controllers.GlobalApp.authenticate()
 POST   /user                        controllers.Application.addUser()
 
 # Gallery
-GET    /gallery/cats/:catid          controllers.gallery.Gallery.getCategoriesByParentId(catid: Long)
-GET    /:userid/gallery/cats/:catid  controllers.gallery.Gallery.getSecuredCategoriesByParentId(userid: Long, catid: Long)
-GET    /images/cat/:catId            controllers.gallery.Gallery.getImagesByCatId(catId: Long)
+GET    /gallery/cats/:catid/:pageId         controllers.gallery.Gallery.getCategoriesByParentId(catid: Long, pageId: Int)
+GET    /:userid/gallery/cats/:catid/:pageId  controllers.gallery.Gallery.getSecuredCategoriesByParentId(userid: Long, catid: Long, pageId: Int)
+# GET    /images/cat/:catId            controllers.gallery.Gallery.getImagesByCatId(catId: Long)
+# GET    /:userid/images/cat/:catId    controllers.gallery.Gallery.getSecuredImagesByCatId(catId: Long)
 POST   /gallery/cat                  controllers.gallery.Gallery.createCategory()
 POST   /gallery/cat/:catId           controllers.gallery.Gallery.updateCategory(catId: Long)
-POST   /gallery/img/:imgId           controllers.gallery.Gallery.updateImage(imgId: Long)
-POST   /images/upload/:catId         controllers.gallery.Gallery.upload(catId: Long)
+DELETE   /:userid/gallery/cat/:catId           controllers.gallery.Gallery.deleteCategory(userid: Long, catId: Long)
+PUT   /gallery/img/:imgId           controllers.gallery.Gallery.updateImage(imgId: Long)
+DELETE   /:userid/gallery/img/:imgId           controllers.gallery.Gallery.deleteImage(userid: Long, imgId: Long)
+
+POST   /gallery/img/:catId         controllers.gallery.Gallery.upload(catId: Long)
 
 
 

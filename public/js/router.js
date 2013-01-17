@@ -18,8 +18,10 @@ define([
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
+      'gallery/cat/:catId/:pageId': 'showGallery',
       'gallery/cat/:catId': 'showGallery',
       'mygallery/cat/:catId': 'showMyGallery',
+      'mygallery/cat/:catId/:pageId': 'showMyGallery',
       'newuser': 'newUser',
       'exit': 'exit',
       
@@ -48,15 +50,17 @@ define([
 	};
 
 
-    app_router.on('route:showGallery', function (catId) {
+    app_router.on('route:showGallery', function (catId, pageId) {
         $("#page").unbind();
-        var galleryMainView = new GalleryMainView({catId: catId});
+        pageId = pageId == undefined ? 1 : pageId; 
+        var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId});
         initPage();
     });
     
-    app_router.on('route:showMyGallery', function (catId) {
+    app_router.on('route:showMyGallery', function (catId, pageId) {
         $("#page").unbind();
-        var galleryMainView = new GalleryMainView({catId: catId, userId: sessionStorage.getItem('userid') });
+        pageId = pageId == undefined ? 1 : pageId; 
+        var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId, userId: sessionStorage.getItem('userid') });
         initPage();
     });
     
@@ -77,8 +81,9 @@ define([
     });
     
     app_router.on('route:defaultAction', function (actions) {
+        console.log( "Action:" + actions );
         $("#page").unbind();
-        var galleryMainView = new GalleryMainView({catId: 0});
+        var galleryMainView = new GalleryMainView({catId: 0, pageId: 1});
         initPage();
 
     });

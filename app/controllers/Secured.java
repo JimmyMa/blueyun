@@ -17,6 +17,12 @@ public class Secured extends Security.Authenticator {
     	return Context.current().session().get("userid") != null;
     }
     
+    public static boolean isLogin(Long userId) {
+    	Logger.info("getUserId11: " + userId );
+    	return ( Context.current().session().get("userid") != null 
+    			&& getUserId() == userId );
+    }
+    
     public static Long getUserId() {
     	Logger.info("getUserId: " + Context.current().session().get("userid") );
     	return Long.parseLong( Context.current().session().get("userid") );

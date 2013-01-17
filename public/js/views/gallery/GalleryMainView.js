@@ -3,13 +3,15 @@ define([
   'underscore',
   'backbone',
   'collections/gallery/CategoryCollection',
+  'models/gallery/ImageModel',
+  'models/gallery/CategoryModel',
   'views/gallery/ImageUploadView',
   'views/gallery/NewCategoryView',
   'text!templates/gallery/galleryMainTemplate.html',
   'text!templates/gallery/galleryHomeTemplate.html',
   'image-gallery',
   'bootstrap-editable'
-], function($, _, Backbone, CategoryCollection, ImageUploadView, 
+], function($, _, Backbone, CategoryCollection, ImageModel, CategoryModel, ImageUploadView, 
     NewCategoryView, galleryMainTemplate, galleryHomeTemplate){
   
   var GalleryMainView = Backbone.View.extend({
@@ -21,13 +23,14 @@ define([
     
     initialize : function() {
       var that = this;
-      var onDataHandler = function(collection) {
+      that.onDataHandler = function(collection) {
           that.render();
       }
 	  that.categoryCollection = new CategoryCollection(); 
 	  that.categoryCollection.catId = this.options.catId;
+	  that.categoryCollection.pageId = this.options.pageId;
 	  that.categoryCollection.userId = this.options.userId;
-	  that.categoryCollection.fetch({ success : onDataHandler });
+	  that.categoryCollection.fetch({ success : that.onDataHandler });
     },
 
     render : function() {
@@ -36,21 +39,26 @@ define([
         
         $('#main-menu-left li').removeClass('active');
         $('#main-menu-left li a[href="#/gallery"]').parent().addClass('active');
+        
         this.currentCat = that.categoryCollection.models[3].toJSON();
+        this.pagingresult = that.categoryCollection.models[1].toJSON();
         var data = {
         	categories: that.categoryCollection.models[0].toJSON(),
-        	images: that.categoryCollection.models[1].toJSON(),
+        	images: this.pagingresult["elements"],
         	catParents : that.categoryCollection.models[2].toJSON(),
         	currentCat : this.currentCat,
         	needDivider : this.currentCat.id != undefined,
-        	mainPage : this.options.userId == undefined,
+        	currentPage: this.pagingresult["currentPage"],
+        	totolPages: this.pagingresult["totolPages"],
         	_: _
         }
 		var compiledTemplate;
 		if ( this.options.userId == undefined ) {
 			compiledTemplate = _.template( galleryHomeTemplate, data );
+			that.rooturl = "/gallery/";
 		} else {
 			compiledTemplate = _.template( galleryMainTemplate, data );
+			that.rooturl = "/mygallery/";
 		}
         this.$el.html( compiledTemplate ); 
         
@@ -88,33 +96,60 @@ define([
 			    type: 'text',
 			    pk: 1,
 			    title: '输入图片标题',
-			    name: 'title'
-			}, {
+			    name: 'title',
 				ajaxOptions: {
-				    dataType: 'json'
+				    dataType: 'json',
+				    type: 'PUT'
 				}
 		    });
 		    this.$( ".imgdes" ).editable({
 			    type: 'textarea',
 			    pk: 1,
 			    title: '输入图片描述',
-			    name: 'description'
-			}, {
+			    name: 'description',
 				ajaxOptions: {
-				    dataType: 'json'
+				    dataType: 'json',
+				    type: 'PUT'
 				}
 		    });
+		    
+		    $( ".deleteImg" ).on( "click", function( e ) {
+		    	e.preventDefault();
+		    	var id = this.dataset.id;
+		    	var imageModel = new ImageModel( {id: id, userId: that.options.userId } );
+		    	imageModel.destroy({success: function(model, response) {
+			    	that.categoryCollection.fetch({ success : that.onDataHandler });
+				}});
+		    });
+		    
+		    $( ".deleteCat" ).on( "click", function( e ) {
+		    	e.preventDefault();
+		    	var id = this.dataset.id;
+		    	var categoryModel = new CategoryModel( {id: id, userId: that.options.userId }, {action: "delete"} );
+		    	categoryModel.destroy({success: function(model, response) {
+			    	that.categoryCollection.fetch({ success : that.onDataHandler });
+				}});
+		    });
 	    }
+	    
+	    this.$( ".pagination ul > li > a" ).on( "click", function( e ) {
+	    	e.preventDefault();
+	    	window.app_router.navigate(that.rooturl + "cat/" + that.currentCat.id + "/" + this.text, {trigger: true}); 
+	    });
+	    
+	    
         
         return this;
       },
       
       addImgs: function() {
+        window.app_router.navigate(window.location.hash.substr(1) + "/addImgs", {trigger: false});
       	var imageUploadView = new ImageUploadView({category: this.currentCat});
       	imageUploadView.render();
       },
       
       addCat: function() {
+        window.app_router.navigate(window.location.hash.substr(1) + "/addCat", {trigger: false});
         $("#gallerymain").unbind();
       	var newCategoryView = new NewCategoryView({category: this.currentCat, el: this.$("#gallerymain")});
       	newCategoryView.render();

@@ -22,32 +22,41 @@ import blueyun.files.upload.FileUploadResult;
 import blueyun.files.upload.UploadedFile;
 import controllers.Secured;
 import controllers.common.ControllersUtils;
+import controllers.common.PagingResult;
 
 public class Gallery extends Controller {
 
-	public static Result getImagesByCatId( Long id) {
+	public static Result getImagesByCatId( Long id, int pageId) {
+		PagingResult<Image> images = Image.findByCatId( id, pageId );
+        return ok( Json.toJson(images));
+	}
+	
+	public static Result getSecuredImagesByCatId( Long id) {
 		List<Image> images = Image.findByCatId( id, Secured.getUserId() );
         return ok( Json.toJson(images));
 	}
 	
-	public static Result getCategoriesByParentId( Long id ) {
+	public static Result getCategoriesByParentId( Long id, int pageId ) {
 		List<Category> cats = Category.findByCatId(id );
-		List<Image> images = Image.findByCatId( id );
+		PagingResult<Image> images = Image.findByCatId( id, pageId );
 
-		if ( id == 0 ) {
-			Category cat = new Category();
+		Category cat = null;
+		if ( id <= 0) {
+			cat = new Category();
 			cat.id = (long)-1;
-			cat.title = "照片";
-			cat.description = "这是你的所有照片";
+			cat.title = "所有照片";
+			cat.description = "这是所有照片";
 			if ( cats.size() > 0 ) {
 				cat.thumbnail = cats.get(0).thumbnail;
 			} else {
 				cat.thumbnail = "/assets/imgs/thumbnail.jpg";
 			}
-			cats.add(0, cat);
+			if ( id == 0 )
+				cats.add(0, cat);
 		}
 		List<Category> catTree = Category.findAllParent( id );
-		Category currentCat = null;
+		
+		Category currentCat = id < 0 ? cat : null ;
 		if ( catTree.size() > 0 ) {
 			currentCat = catTree.remove( catTree.size() - 1 );
 		} 
@@ -60,34 +69,11 @@ public class Gallery extends Controller {
         return ok( Json.toJson(result));
 	}
 	
-	public static Result getSecuredCategoriesByParentId( Long userid, Long id ) {
-		List<Category> cats = Category.findByUserCatId(Secured.getUserId(), id );
-		List<Image> images = Image.findByCatId( id, Secured.getUserId() );
-
-		if ( id == 0 ) {
-			Category cat = new Category();
-			cat.id = (long)-1;
-			cat.title = "照片";
-			cat.description = "这是你的所有照片";
-			if ( cats.size() > 0 ) {
-				cat.thumbnail = cats.get(0).thumbnail;
-			} else {
-				cat.thumbnail = "/assets/imgs/thumbnail.jpg";
-			}
-			cats.add(0, cat);
+	public static Result getSecuredCategoriesByParentId( Long userId, Long id, int pageId  ) {
+		if ( !Secured.isLogin( userId ) ) {
+			return badRequest( ControllersUtils.getErrorMessage( "Invalid User" ) );
 		}
-		List<Category> catTree = Category.findAllParent( id );
-		Category currentCat = null;
-		if ( catTree.size() > 0 ) {
-			currentCat = catTree.remove( catTree.size() - 1 );
-		} 
-		
-		List result = new ArrayList();
-		result.add( cats );
-		result.add( images );
-		result.add( catTree );
-		result.add( currentCat );
-        return ok( Json.toJson(result));
+        return getCategoriesByParentId( id, pageId );
 	}
 	
 	public static Result createCategory() {
@@ -120,6 +106,24 @@ public class Gallery extends Controller {
     	oldCat.save();
         return ok(Json.toJson( oldCat ) );
 
+	}
+	
+	public static Result deleteCategory(Long userId, Long catId) {
+		if ( !Secured.isLogin( userId ) ) {
+			return badRequest( ControllersUtils.getErrorMessage( "Invalid User" ) );
+		}
+    	Category cat = Category.find.byId( catId );
+    	cat.delete();
+        return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
+	}
+	
+	public static Result deleteImage(Long userId, Long catId) {
+		if ( !Secured.isLogin( userId ) ) {
+			return badRequest( ControllersUtils.getErrorMessage( "Invalid User" ) );
+		}
+    	Image img = Image.find.byId( catId );
+    	img.delete();
+        return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
 	}
 	
 	public static Result updateImage(Long imgId) {

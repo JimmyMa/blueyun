@@ -14,7 +14,7 @@ define([
   	  },
 
 	  url : function() {
-	      return '/gallery/' + this.userid + '/cat/' + this.catid;
+	      return '/' + this.get( "userId" ) + '/gallery/img/' + this.id;
 	  }
 
     });

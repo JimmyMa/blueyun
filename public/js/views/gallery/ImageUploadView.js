@@ -28,7 +28,7 @@ define([
 	    $('#fileupload').fileupload({
 	        // Uncomment the following to send cross-domain cookies:
 	        //xhrFields: {withCredentials: true},
-	        url: '/images/upload/' + this.category.id
+	        url: '/gallery/img/' + this.category.id
 	    });
 	
 	    // Enable iframe cross-domain access via redirect option:

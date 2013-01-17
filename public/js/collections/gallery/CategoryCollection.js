@@ -10,9 +10,9 @@ define([
       
       url : function() {
         if ( this.userId != null ) {
-        	return "/" + this.userId + '/gallery/cats/' + this.catId;
+        	return "/" + this.userId + '/gallery/cats/' + this.catId + "/" + (this.pageId == undefined ? "1" : this.pageId);
         } else {
-        	return '/gallery/cats/' + this.catId;
+        	return '/gallery/cats/' + this.catId + "/" + (this.pageId == undefined ? "1" : this.pageId);
         }
       },
     

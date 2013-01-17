@@ -8,6 +8,7 @@ _.each( catParents, function(parent) { %>
 <%});%>
   <li><a href="#/gallery/cat/<%=currentCat.id%>"><%=currentCat.title%></a></li>
 </ul>
+
 <div id="gallerymain">
 <%var i = 0;
 _.each( categories, function(category) { %>
@@ -45,12 +46,12 @@ _.each( images, function(image) { %>
 i ++;
 %>
 	  <li class="span3">
-	    <div class="thumbnail">
+	    <div class="thumbnail align_center">
 	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery">
 	         <img src="<%=image.thumbnail%>" alt="" class="img-polaroid">
 	      </a>
-	      <h5><a class="imgtitle" data-url="/gallery/img/<%=image.id%>"><%=image.title == null ? "空" : image.title%></a></h5>
-	      <p><a class="imgdes" data-name="" data-url="/gallery/img/<%=image.id%>"><%=image.description == null ? "空" : image.description%></a></p>
+	      <h5><%=image.title == null ? "" : image.title%></h5>
+	      <p><%=image.description == null ? "" : image.description%></p>
 	    </div>
 	  </li>
 <%if ( i % 4 == 0 ) {%>
@@ -63,6 +64,22 @@ i ++;
 </div>
 <%}%>
 </div>
+
+<% if ( totolPages > 1 ) { %>
+
+	<div class="pagination pagination-centered">
+	  <ul>
+	    <li><a href="#">上一页</a></li>
+	<%for ( var i = 1; i <= totolPages; i ++ ) {%>
+	    <li class="<%=currentPage == i ? "active" : "disabled"%>">
+	       <a href="#"><%=i%></a>
+	    </li>
+	<%}%>
+	    <li><a href="#">下一页</a></li>
+	  </ul>
+	</div>
+<%}%>
+
 </div>
 
 <div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">

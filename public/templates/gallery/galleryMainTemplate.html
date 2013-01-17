@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/assets/css/bootstrap-image-gallery.css">
 <link href="/assets/js/libs/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
 <ul class="breadcrumb">
-  <li><a href="#/mygallery/cat/0"><%=mainPage? "" : "我的"%>相册</a> <%= needDivider ? "<span class='divider'>/</span>" : ""%></li>
+  <li><a href="#/mygallery/cat/0">我的相册</a> <%= needDivider ? "<span class='divider'>/</span>" : ""%></li>
 <%var i = 0;
 _.each( catParents, function(parent) { %>
   <li><a href="#/mygallery/cat/<%=parent.id%>"><%=parent.title%></a> <span class="divider">/</span></li>
@@ -26,7 +26,16 @@ i ++;
 	  <li class="span3"><a href="#/mygallery/cat/<%=category.id%>">
 	    <div class="thumbnail">
 	      <img src="<%=category.thumbnail%>" alt="" class="img-polaroid">
-	      <h4><%=category.title%></h4>
+	      <h4><%=category.title%>
+	      
+			<li id="fat-menu" class="dropdown pull-right">
+			  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i><b class="caret"></b></a>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+			    <li><a href="#" data-id="<%=category.id%>" class="deleteCat"><i class="icon-trash"></i>删除</a></li>
+			  </ul>
+			</li>
+			
+	      </h4>
 	      <p><%=category.description%></p>
 	    </div></a>
 	  </li>
@@ -55,7 +64,17 @@ i ++;
 	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery">
 	         <img src="<%=image.thumbnail%>" alt="" class="img-polaroid">
 	      </a>
-	      <h5><a class="imgtitle" data-url="/gallery/img/<%=image.id%>"><%=image.title == null ? "空" : image.title%></a></h5>
+	      <h5>
+	         <a class="imgtitle" data-url="/gallery/img/<%=image.id%>"><%=image.title == null ? "空" : image.title%></a>
+
+			<li id="fat-menu" class="dropdown pull-right">
+			  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i><b class="caret"></b></a>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+			    <li><a href="#" data-id="<%=image.id%>" class="deleteImg"><i class="icon-trash"></i>删除</a></li>
+			  </ul>
+			</li>
+
+	       </h5>
 	      <p><a class="imgdes" data-name="" data-url="/gallery/img/<%=image.id%>"><%=image.description == null ? "空" : image.description%></a></p>
 	    </div>
 	  </li>
@@ -69,6 +88,22 @@ i ++;
 </div>
 <%}%>
 </div>
+
+<% if ( totolPages > 1 ) { %>
+
+	<div class="pagination pagination-centered">
+	  <ul>
+	    <li><a href="#">上一页</a></li>
+	<%for ( var i = 1; i <= totolPages; i ++ ) {%>
+	    <li class="<%=currentPage == i ? "active" : "disabled"%>">
+	       <a href="#"><%=i%></a>
+	    </li>
+	<%}%>
+	    <li><a href="#">下一页</a></li>
+	  </ul>
+	</div>
+<%}%>
+
 </div>
 
 <div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">

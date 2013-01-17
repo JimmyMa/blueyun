@@ -12,9 +12,6 @@ import controllers.common.Util;
 
 public class FileUpload {
 	
-	public static S3Plugin plugin = new S3Plugin(null);
-	
-//	static String RootFolder = "D:/Projects/Mine/MyTodo/BlueYun/public/imgs/users/";
 	static String RootFolder = "/tmp/imgs/users/";
 
 	public static FileUploadResult uploadFile( File file, String fileName, String contentType, long userid ) throws IOException {
@@ -30,6 +27,7 @@ public class FileUpload {
 			S3File s3File = new S3File();
 			s3File.file = targetFile;
 			s3File.name = fileName;
+			s3File.userId = userid;
 			s3File.save();
 			uploadedFile.url = s3File.getUrl();
 			uploadedFile.size = targetFile.length();
@@ -40,6 +38,7 @@ public class FileUpload {
 			S3File s3File = new S3File();
 			s3File.file = targetFile;
 			s3File.name = fileName;
+			s3File.userId = userid;
 			s3File.save();
 			uploadedFile.thumbnail_url = s3File.getUrl();
 		}
