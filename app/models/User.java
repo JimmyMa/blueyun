@@ -29,7 +29,6 @@ public class User extends Model {
     @Constraints.Required
     public String name;
     
-    @JsonIgnore
     @Constraints.Required
     public String password;
     

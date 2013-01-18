@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import models.User;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
@@ -30,9 +32,11 @@ public class Image extends Model {
     
     public String thumbnail;
     
+    @JsonIgnore
     @ManyToOne
     public Category category;
     
+    @JsonIgnore
     @ManyToOne
     public User user;
     

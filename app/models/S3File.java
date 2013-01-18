@@ -42,8 +42,7 @@ public class S3File {
     }
 
     public void save() {
-        
-        id ++;
+
         if (S3Plugin.amazonS3 == null) {
             try {
 				Util.copyFile(file, new File( RootFolder + userId + "/" + id + "/" ) , name );
@@ -54,7 +53,6 @@ public class S3File {
         }
         else {
             this.bucket = S3Plugin.s3Bucket;
-//            super.save(); // assigns an id
 
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, getActualFileName(), file);
             putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead); // public for all

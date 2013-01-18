@@ -18,13 +18,15 @@ public class Secured extends Security.Authenticator {
     }
     
     public static boolean isLogin(Long userId) {
-    	Logger.info("getUserId11: " + userId );
-    	return ( Context.current().session().get("userid") != null 
-    			&& getUserId() == userId );
+//    	Logger.info("getUserId11: " + userId + ": " +  getUserId() + ":" + (getUserId().equals( userId ) ) );
+    	return ( userId.equals( getUserId() )  );
     }
     
     public static Long getUserId() {
-    	Logger.info("getUserId: " + Context.current().session().get("userid") );
+//    	Logger.info("getUserId: " + Context.current().session().get("userid") );
+    	if ( !isLogin() ) {
+    		return new Long(0);
+    	}
     	return Long.parseLong( Context.current().session().get("userid") );
     }
     
