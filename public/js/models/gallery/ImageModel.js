@@ -6,15 +6,20 @@ define([
   var ImageModel = Backbone.Model.extend({
 
   	  defaults : {
-          subcatid: "unknown"
+          userId: 0,
+          status: 0
       },  
 
-      initialize: function( options ) {
+      initialize: function( model, options ) {
   			this.action = options.action; 
   	  },
 
 	  url : function() {
-	      return '/' + this.get( "userId" ) + '/gallery/img/' + this.id;
+	      if ( this.action == "updateStatus" ) {
+	      	  return '/' + this.get( "userId" ) + '/gallery/img/s/' + this.id;
+	      } else {
+	        return '/' + this.get( "userId" ) + '/gallery/img/' + this.id;
+	      }
 	  }
 
     });

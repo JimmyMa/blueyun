@@ -19,7 +19,7 @@ public class S3File {
 
 	static String RootFolder = "D:/Projects/Mine/MyTodo/BlueYun/public/imgs/users/";
 	
-    public Long id = UUID.randomUUID().getMostSignificantBits();
+    public Long id = Math.abs( UUID.randomUUID().getMostSignificantBits() );
 
     private static String bucket = S3Plugin.s3Bucket;
 

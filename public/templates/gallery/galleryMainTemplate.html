@@ -71,6 +71,7 @@ i ++;
 			  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i><b class="caret"></b></a>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 			    <li><a href="#" data-id="<%=image.id%>" class="deleteImg"><i class="icon-trash"></i>删除</a></li>
+			    <li><a href="#" data-id="<%=image.id%>" data-status="<%=image.status%>" class="updateImgStatus"><i class="icon-trash"></i><%=image.status == 0 ? "隐藏" : "公开"%><%console.log("s:" + image.status);%></a></li>
 			  </ul>
 			</li>
 

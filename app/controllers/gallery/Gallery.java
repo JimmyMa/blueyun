@@ -21,25 +21,32 @@ import play.mvc.Result;
 import blueyun.files.upload.FileUpload;
 import blueyun.files.upload.FileUploadResult;
 import blueyun.files.upload.UploadedFile;
+
+import com.blueyun.common.Constants;
+
 import controllers.Secured;
 import controllers.common.ControllersUtils;
 import controllers.common.PagingResult;
 
 public class Gallery extends Controller {
 
-	public static Result getImagesByCatId( Long id, int pageId) {
-		PagingResult<Image> images = Image.findByCatId( id, pageId );
-        return ok( Json.toJson(images));
-	}
-	
-	public static Result getSecuredImagesByCatId( Long id) {
-		List<Image> images = Image.findByCatId( id, Secured.getUserId() );
-        return ok( Json.toJson(images));
-	}
-	
+//	public static Result getImagesByCatId( Long id, int pageId) {
+//		PagingResult<Image> images = Image.findByCatId( id, pageId );
+//        return ok( Json.toJson(images));
+//	}
+//	
+//	public static Result getSecuredImagesByCatId( Long id) {
+//		List<Image> images = Image.findByCatId( id, Secured.getUserId() );
+//        return ok( Json.toJson(images));
+//	}
+//	
 	public static Result getCategoriesByParentId( Long id, int pageId ) {
-		List<Category> cats = Category.findByCatId(id );
-		PagingResult<Image> images = Image.findByCatId( id, pageId );
+		return getCategoriesByParentId( id, pageId, Constants.PUBLIC );
+	}
+	
+	public static Result getCategoriesByParentId( Long id, int pageId, int status ) {
+		List<Category> cats = Category.findChildrenByParentId(id, status );
+		PagingResult<Image> images = Image.findPageByCatId( id, pageId, status );
 
 		Category cat = null;
 		if ( id <= 0) {
@@ -74,7 +81,7 @@ public class Gallery extends Controller {
 		if ( !Secured.isLogin( userId ) ) {
 			return badRequest( ControllersUtils.getErrorMessage( "Invalid User" ) );
 		}
-        return getCategoriesByParentId( id, pageId );
+        return getCategoriesByParentId( id, pageId, Constants.ALL );
 	}
 	
 	public static Result createCategory() {
@@ -115,7 +122,7 @@ public class Gallery extends Controller {
 		}
     	Category cat = Category.find.byId( catId );
     	
-    	List<Image> images = Image.findByCatId( catId, userId);
+    	List<Image> images = Image.findByCatId( catId, userId, Constants.ALL );
     	
     	for ( Image img : images ) {
         	img.delete();
@@ -126,6 +133,16 @@ public class Gallery extends Controller {
     	cat.delete();
     	
         return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
+	}
+	
+	public static Result updateCategoryStatus(Long userId, Long catId) {
+		JsonNode jsonNode = request().body().asJson();
+		int status = Integer.parseInt( jsonNode.get( "status" ).asText() );
+
+		Category cat = Category.find.byId( catId );
+		cat.status = status;
+		cat.update();
+        return ok(ControllersUtils.getSuccessMessage( "OK!") );
 	}
 	
 	public static Result deleteImage(Long userId, Long catId) {
@@ -151,6 +168,17 @@ public class Gallery extends Controller {
     	}
     	oldImg.update();
         return ok(Json.toJson( oldImg ) );
+	}
+	
+	public static Result updateImageStatus(Long userId, Long imgId) {
+		JsonNode jsonNode = request().body().asJson();
+		int status = Integer.parseInt( jsonNode.get( "status" ).asText() );
+		
+    	Image img = Image.find.byId( imgId );
+    	img.status = status;
+    	img.update();
+    	Logger.info( "S: " + img.status);
+        return ok(ControllersUtils.getSuccessMessage( "OK!") );
 	}
 	
 	public static Result upload(Long catId) {

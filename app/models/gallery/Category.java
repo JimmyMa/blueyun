@@ -9,13 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import models.User;
+
 import org.codehaus.jackson.annotate.JsonIgnore;
 
-import models.User;
 import play.Logger;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
+
+import com.avaje.ebean.ExpressionList;
+import com.blueyun.common.Constants;
 
 @Entity 
 @Table(name="gallerycats")
@@ -32,6 +36,8 @@ public class Category extends Model {
     
     public String thumbnail;
     
+    public int status;
+    
     @Formats.DateTime(pattern="MM/dd/yy")
     public Date create_date;
     
@@ -43,21 +49,29 @@ public class Category extends Model {
     
     public static Model.Finder<Long,Category> find = new Model.Finder(Long.class, Category.class);
     
-    public static List<Category> findByUserCatId(Long user, Long parentId) {
+    public static List<Category> findByUserCatId(Long user, Long parentId, int status) {
     	Logger.info( "UserId: " + User.findAll().size() );
     	Logger.info( "parentId: " + Category.find.all().size() );
-        return Category.find.where()
+    	ExpressionList<Category> expr = Category.find.where()
             .eq("user.id", user)
-            .eq("parentId", parentId)
-            .findList();
+            .eq("parentId", parentId);
+    	if ( status != Constants.ALL ) {
+    		expr = expr.eq( "status", status );
+    	}
+    	
+    	return expr.findList();
     }
     
-    public static List<Category> findByCatId(Long parentId) {
+    public static List<Category> findChildrenByParentId(Long parentId, int status) {
     	Logger.info( "UserId: " + User.findAll().size() );
     	Logger.info( "parentId: " + Category.find.all().size() );
-        return Category.find.where()
-            .eq("parentId", parentId)
-            .findList();
+    	ExpressionList<Category> expr =  Category.find.where()
+            .eq("parentId", parentId);
+    	if ( status != Constants.ALL ) {
+    		expr = expr.eq( "status", status );
+    	}
+            
+        return expr.findList();
     }
     
     public static List<Category> findAllParent(Long id) {

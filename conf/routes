@@ -21,8 +21,9 @@ POST   /gallery/cat/:catId           controllers.gallery.Gallery.updateCategory(
 DELETE   /:userid/gallery/cat/:catId           controllers.gallery.Gallery.deleteCategory(userid: Long, catId: Long)
 PUT   /gallery/img/:imgId           controllers.gallery.Gallery.updateImage(imgId: Long)
 DELETE   /:userid/gallery/img/:imgId           controllers.gallery.Gallery.deleteImage(userid: Long, imgId: Long)
-
 POST   /gallery/img/:catId         controllers.gallery.Gallery.upload(catId: Long)
+PUT   /:userid/gallery/img/s/:imgId         controllers.gallery.Gallery.updateImageStatus(userid: Long, imgId: Long)
+PUT   /:userid/gallery/cat/s/:catId         controllers.gallery.Gallery.updateCategoryStatus(userid: Long, catId: Long)
 
 
 

@@ -13,7 +13,9 @@ import models.User;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
+import com.avaje.ebean.ExpressionList;
 import com.avaje.ebean.PagingList;
+import com.blueyun.common.Constants;
 
 import controllers.common.PagingResult;
 
@@ -32,6 +34,8 @@ public class Image extends Model {
     
     public String thumbnail;
     
+    public int status;
+    
     @JsonIgnore
     @ManyToOne
     public Category category;
@@ -42,16 +46,21 @@ public class Image extends Model {
     
     public static Model.Finder<Long,Image> find = new Model.Finder(Long.class, Image.class);
     
-    public static PagingResult<Image> findByCatId(Long category, int pageNum) {
+    public static PagingResult<Image> findPageByCatId(Long category, int pageNum, int status) {
     	PagingResult<Image> results = new PagingResult<Image>();
     	PagingList<Image> pagingList;
+    	ExpressionList<Image> expr = null;
     	if ( category == -1 ) {
-    		pagingList = Image.find.findPagingList( 20 );
+    		expr = Image.find.where();
     	} else {
-    		pagingList = Image.find.where()
-                    .eq("category.id", category)
-                    .findPagingList( 20 );
+    		expr = Image.find.where()
+                    .eq("category.id", category);
     	}
+    	if ( status != Constants.ALL ) {
+    		expr = expr.eq( "status", status );
+    	}
+    	
+    	pagingList = expr.findPagingList( 20 );
     	results.elements = pagingList.getPage( pageNum - 1 ).getList();
     	results.currentPage = pageNum;
     	results.totolPages = pagingList.getTotalPageCount();
@@ -59,15 +68,18 @@ public class Image extends Model {
     	return results;
     }
     
-    public static List<Image> findByCatId(Long category, Long userId) {
+    public static List<Image> findByCatId(Long category, Long userId, int status) {
+    	ExpressionList<Image> expr = null;
     	if ( category == -1 ) {
-            return Image.find.where()
-                    .eq("user.id", userId)
-                    .findList();
+    		expr = Image.find.where()
+                    .eq("user.id", userId);
     	} else {
-            return Image.find.where()
-                    .eq("category.id", category)
-                    .findList();
+    		expr = Image.find.where()
+                    .eq("category.id", category);
     	}
+    	if ( status != Constants.ALL ) {
+    		expr = expr.eq( "status", status );
+    	}
+    	return expr.findList();
     }
 }

@@ -122,6 +122,17 @@ define([
 				}});
 		    });
 		    
+		    $( ".updateImgStatus" ).on( "click", function( e ) {
+		    	e.preventDefault();
+		    	var id = this.dataset.id;
+		    	var status = this.dataset.status;
+		    	status = (status == 0 ? "1" : "0");
+		    	var imageModel = new ImageModel( {id: id, userId: that.options.userId, status: status }, {action: "updateStatus"} );
+		    	imageModel.save({success: function(model, response) {
+			    	that.categoryCollection.fetch({ success : that.onDataHandler });
+				}});
+		    });
+		    
 		    $( ".deleteCat" ).on( "click", function( e ) {
 		    	e.preventDefault();
 		    	var id = this.dataset.id;

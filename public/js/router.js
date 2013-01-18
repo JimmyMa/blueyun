@@ -4,15 +4,13 @@ define([
   'underscore',
   'backbone',
   'views/home/HomeView',
-  'views/projects/ProjectsView',
   'views/footer/FooterView',
   'views/users/RegisterFormView',
   'views/gallery/GalleryMainView',
-  'views/gallery/ImageUploadView',
   'views/users/UserLoginView',
   'views/users/UserActionsView'
-], function($, _, Backbone, HomeView, ProjectsView, 
-	FooterView, RegisterFormView, GalleryMainView, ImageUploadView, 
+], function($, _, Backbone, HomeView, 
+	FooterView, RegisterFormView, GalleryMainView, 
 	UserLoginView, UserActionsView) {
   
   var AppRouter = Backbone.Router.extend({
@@ -63,11 +61,6 @@ define([
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId, userId: sessionStorage.getItem('userid') });
         initPage();
-    });
-    
-    app_router.on('route:newGallery', function () {
-       var imageUploadView = new ImageUploadView();
-       imageUploadView.render();
     });
     
     app_router.on('route:newUser', function () {
