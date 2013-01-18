@@ -124,12 +124,41 @@ define([
 		    
 		    $( ".updateImgStatus" ).on( "click", function( e ) {
 		    	e.preventDefault();
+		    	var theEle = $(this);
 		    	var id = this.dataset.id;
-		    	var status = this.dataset.status;
+		    	var status = theEle.attr( "data-status" );
 		    	status = (status == 0 ? "1" : "0");
 		    	var imageModel = new ImageModel( {id: id, userId: that.options.userId, status: status }, {action: "updateStatus"} );
-		    	imageModel.save({success: function(model, response) {
-			    	that.categoryCollection.fetch({ success : that.onDataHandler });
+		    	imageModel.save(null, {success: function(model, response) {
+		    	    if ( status == 1 ) {
+		    	    	theEle.parents( "div.thumbnail" ).addClass( "status_notpublic" );
+		    	    	theEle.text( "公开" );
+		    	    	theEle.attr( "data-status", status );
+		    	    } else {
+		    	        theEle.parents( "div.thumbnail" ).removeClass( "status_notpublic" );
+		    	        theEle.text( "隐藏" );
+		    	        theEle.attr( "data-status", status );
+		    	    }
+				}});
+		    });
+		    
+		    $( ".updateCatStatus" ).on( "click", function( e ) {
+		    	e.preventDefault();
+		    	var theEle = $(this);
+		    	var id = this.dataset.id;
+		    	var status = theEle.attr( "data-status" );
+		    	status = (status == 0 ? "1" : "0");
+		    	var categoryModel = new CategoryModel( {id: id, userId: that.options.userId, status: status }, {action: "updateStatus"} );
+		    	categoryModel.save(null, {success: function(model, response) {
+		    	    if ( status == 1 ) {
+		    	    	theEle.parents( "div.thumbnail" ).addClass( "status_notpublic" );
+		    	    	theEle.text( "公开" );
+		    	    	theEle.attr( "data-status", status );
+		    	    } else {
+		    	        theEle.parents( "div.thumbnail" ).removeClass( "status_notpublic" );
+		    	        theEle.text( "隐藏" );
+		    	        theEle.attr( "data-status", status );
+		    	    }
 				}});
 		    });
 		    

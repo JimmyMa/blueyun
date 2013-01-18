@@ -59,3 +59,7 @@
 .align_center {
   text-align: center;
 }
+
+.status_notpublic {
+  background-color: #f7f7f9;
+}

@@ -24,7 +24,7 @@ _.each( categories, function(category) { %>
 i ++;
 %>
 	  <li class="span3"><a href="#/mygallery/cat/<%=category.id%>">
-	    <div class="thumbnail">
+	    <div class="thumbnail  <%=category.status == 0 ? "" : "status_notpublic"%>"">
 	      <img src="<%=category.thumbnail%>" alt="" class="img-polaroid">
 	      <h4><%=category.title%>
 	      
@@ -32,6 +32,7 @@ i ++;
 			  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i><b class="caret"></b></a>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 			    <li><a href="#" data-id="<%=category.id%>" class="deleteCat"><i class="icon-trash"></i>删除</a></li>
+			    <li><a href="#" data-id="<%=category.id%>" data-status="<%=category.status%>" class="updateCatStatus"><%=category.status == 0 ? "隐藏" : "公开"%></a></li>
 			  </ul>
 			</li>
 			
@@ -59,8 +60,8 @@ _.each( images, function(image) { %>
 <%}
 i ++;
 %>
-	  <li class="span3">
-	    <div class="thumbnail">
+	  <li class="span3 ">
+	    <div class="thumbnail <%=image.status == 0 ? "" : "status_notpublic"%>">
 	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery">
 	         <img src="<%=image.thumbnail%>" alt="" class="img-polaroid">
 	      </a>
@@ -71,7 +72,7 @@ i ++;
 			  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i><b class="caret"></b></a>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 			    <li><a href="#" data-id="<%=image.id%>" class="deleteImg"><i class="icon-trash"></i>删除</a></li>
-			    <li><a href="#" data-id="<%=image.id%>" data-status="<%=image.status%>" class="updateImgStatus"><i class="icon-trash"></i><%=image.status == 0 ? "隐藏" : "公开"%><%console.log("s:" + image.status);%></a></li>
+			    <li><a href="#" data-id="<%=image.id%>" data-status="<%=image.status%>" class="updateImgStatus"><%=image.status == 0 ? "隐藏" : "公开"%></a></li>
 			  </ul>
 			</li>
 
