@@ -190,10 +190,8 @@ public class Gallery extends Controller {
 		    img.location = uploadedFile.url;
 		    img.thumbnail = uploadedFile.thumbnail_url;
 		    img.save();
-		    if ( img.category.thumbnail == null || img.category.thumbnail.endsWith( "thumbnail.jpg" ) ) {
-		    	img.category.thumbnail = uploadedFile.thumbnail_url;
-		    	img.category.save();
-		    }
+
+		    Category.updateThumbWithParents( img.category, uploadedFile.thumbnail_url );
 		    
 		    return ok(Json.toJson( result ));
 		  } else {

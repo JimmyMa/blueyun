@@ -88,4 +88,17 @@ public class Category extends Model {
     	parents.add( 0, parent );
     	findParent( parents, parent.parentid );
     }
+    
+    public static void updateThumbWithParents(Category category, String thumbnail_url) {
+	    if ( category.thumbnail == null || category.thumbnail.endsWith( "thumbnail.jpg" ) ) {
+	    	category.thumbnail = thumbnail_url;
+	    	category.save();
+	    }
+
+	    if ( category.parentid != 0 ) { 
+	    	Category parent = Category.find.where().eq("id", category.parentid).findUnique();
+	    	updateThumbWithParents(parent, thumbnail_url);
+	    }
+    }
+    
 }
