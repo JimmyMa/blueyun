@@ -54,15 +54,20 @@ define([
         $("#page").unbind();
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId});
-        initPage();
+        galleryMainView.setElement($("#page"));
+
     });
     
     app_router.on('route:showMyGallery', function (catId, pageId) {
         initPage();
 
+        $('#main-menu li').removeClass('active');
+        $('#main-menu li a[href="#/mygallery/cat/0"]').parent().addClass('active');
+
         $("#page").unbind();
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId, userId: sessionStorage.getItem('userid') });
+        galleryMainView.setElement($("#page"));
     });
     
     app_router.on('route:newUser', function () {
@@ -79,12 +84,21 @@ define([
     
     app_router.on('route:defaultAction', function (actions) {
         initPage();
-
-        console.log( "Action:" + actions );
+        
         $("#page").unbind();
-        var galleryMainView = new GalleryMainView({catId: 0, pageId: 1});
+        
+        $('#main-menu-left li').removeClass('active');
+        $('#main-menu-left li a[href="#"]').parent().addClass('active');
+
+        var homeView = new HomeView();
+        homeView.setElement($("#page"));
 
     });
+    
+    
+    Backbone.View.prototype.assign = function (view, selector) {
+	    view.setElement(this.$(selector)).render();
+	};
     
 
     Backbone.history.start();

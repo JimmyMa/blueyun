@@ -8,10 +8,16 @@ define([
       
       model: ImageModel,
 
-      initialize : function(models, options) {},
+      initialize : function(models, options) {
+      	  this.action = options.action;
+      },
       
       url : function() {
-        return '/images/subcat/' + this.subcatId;
+      	  if ( this.action == "getPopImags" ) {
+              return '/home/popimgs';
+          } else {
+          
+          }
       },
     
       parse : function(data) {

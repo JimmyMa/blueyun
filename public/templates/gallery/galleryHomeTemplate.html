@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/assets/css/bootstrap-image-gallery.css">
 <link href="/assets/js/libs/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
+<%if ( navBar ) {%>
 <ul class="breadcrumb">
   <li><a href="#/gallery/cat/0">相册</a> <%= needDivider ? "<span class='divider'>/</span>" : ""%></li>
 <%var i = 0;
@@ -8,7 +9,7 @@ _.each( catParents, function(parent) { %>
 <%});%>
   <li><a href="#/gallery/cat/<%=currentCat.id%>"><%=currentCat.title%></a></li>
 </ul>
-
+<%}%>
 <div id="gallerymain">
 <%var i = 0;
 _.each( categories, function(category) { %>
@@ -47,7 +48,7 @@ i ++;
 %>
 	  <li class="span3">
 	    <div class="thumbnail align_center">
-	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery">
+	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery" data-id="<%=image.id%>">
 	         <img src="<%=image.thumbnail%>" alt="" class="img-polaroid">
 	      </a>
 	      <h5><%=image.title == null ? "" : image.title%></h5>

@@ -68,3 +68,14 @@
 .status_notpublic {
   background-color: #f7f7f9;
 }
+
+.carousel-inner { 
+  text-align: center; 
+}
+
+.carousel .item > img { 
+   display: inline-block; 
+   height:700px; 
+   max-width: 1200px;
+}
+

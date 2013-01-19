@@ -30,10 +30,10 @@ import controllers.common.PagingResult;
 
 public class Gallery extends Controller {
 
-//	public static Result getImagesByCatId( Long id, int pageId) {
-//		PagingResult<Image> images = Image.findByCatId( id, pageId );
-//        return ok( Json.toJson(images));
-//	}
+	public static Result getPopImages() {
+		List<Image> images = Image.findPopImages();
+        return ok( Json.toJson(images));
+	}
 //	
 //	public static Result getSecuredImagesByCatId( Long id) {
 //		List<Image> images = Image.findByCatId( id, Secured.getUserId() );
@@ -140,6 +140,14 @@ public class Gallery extends Controller {
     	S3File.delete( img.location );
     	S3File.delete( img.thumbnail );
         return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
+	}
+	
+	public static Result addFaverite(Long imgId) {
+    	Image img = Image.find.byId( imgId );
+    	img.favorites = img.favorites + 1;
+    	img.update();
+    	Logger.info( "Faverites: " + img.favorites );
+        return ok(ControllersUtils.getSuccessMessage( "OK!") );
 	}
 	
 	public static Result updateImage(Long imgId) {

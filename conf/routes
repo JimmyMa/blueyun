@@ -13,6 +13,8 @@ POST   /user                        controllers.Application.addUser()
 
 # Gallery
 GET    /gallery/cats/:catid/:pageId         controllers.gallery.Gallery.getCategoriesByParentId(catid: Long, pageId: Int)
+GET    /home/popimgs                        controllers.gallery.Gallery.getPopImages()
+GET    /gallery/img/faverite/:imgId         controllers.gallery.Gallery.addFaverite(imgId: Long)
 GET    /:userid/gallery/cats/:catid/:pageId  controllers.gallery.Gallery.getSecuredCategoriesByParentId(userid: Long, catid: Long, pageId: Int)
 # GET    /images/cat/:catId            controllers.gallery.Gallery.getImagesByCatId(catId: Long)
 # GET    /:userid/images/cat/:catId    controllers.gallery.Gallery.getSecuredImagesByCatId(catId: Long)

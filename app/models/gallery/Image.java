@@ -36,6 +36,8 @@ public class Image extends Model {
     
     public int status;
     
+    public int favorites;
+    
     @JsonIgnore
     @ManyToOne
     public Category category;
@@ -66,6 +68,11 @@ public class Image extends Model {
     	results.totolPages = pagingList.getTotalPageCount();
     	
     	return results;
+    }
+    
+    public static List<Image> findPopImages() {
+    	List<Image> images = Image.find.orderBy( "favorites DESC" ).setMaxRows( 20 ).findList();
+    	return images;
     }
     
     public static List<Image> findByCatId(Long category, Long userId, int status) {

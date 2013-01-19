@@ -15,7 +15,7 @@ define([
     NewCategoryView, galleryMainTemplate, galleryHomeTemplate){
   
   var GalleryMainView = Backbone.View.extend({
-    el : $("#page"),
+    tagName: "div",
     events: {
     	"click #addImgs":  "addImgs",
     	"click #addCat": "addCat"
@@ -26,6 +26,7 @@ define([
       that.onDataHandler = function(collection) {
           that.render();
       }
+      that.navBar = this.options.navBar == undefined ? true : this.options.navBar == undefined;
 	  that.categoryCollection = new CategoryCollection(); 
 	  that.categoryCollection.catId = this.options.catId;
 	  that.categoryCollection.pageId = this.options.pageId;
@@ -37,9 +38,6 @@ define([
    
         var that = this;
         
-        $('#main-menu-left li').removeClass('active');
-        $('#main-menu-left li a[href="#/gallery"]').parent().addClass('active');
-        
         this.currentCat = that.categoryCollection.models[3].toJSON();
         this.pagingresult = that.categoryCollection.models[1].toJSON();
         var data = {
@@ -50,6 +48,7 @@ define([
         	needDivider : this.currentCat.id != undefined,
         	currentPage: this.pagingresult["currentPage"],
         	totolPages: this.pagingresult["totolPages"],
+        	navBar: that.navBar,
         	_: _
         }
 		var compiledTemplate;
@@ -170,6 +169,13 @@ define([
 			    	that.categoryCollection.fetch({ success : that.onDataHandler });
 				}});
 		    });
+	    } else {
+			$('#modal-gallery').on('displayed', function () {
+			    var modalData = $(this).data('modal');
+			    var imgId = $(modalData.$links[modalData.options.index]).data( "id" );
+			    var imageModel = new ImageModel( {id: imgId }, {action: "faverite"} );
+			    imageModel.fetch();
+			});
 	    }
 	    
 	    this.$( ".pagination ul > li > a" ).on( "click", function( e ) {

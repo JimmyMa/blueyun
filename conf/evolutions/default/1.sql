@@ -32,6 +32,7 @@ create table galleryimage (
   category_id               bigint,
   user_id                   bigint,
   status                    int,
+  favorites                 int,
   constraint pk_galleryimage primary key (id),
   foreign key (category_id) references gallerycats (id) on delete cascade on update restrict,
   foreign key (user_id) references account (id) on delete cascade on update restrict
