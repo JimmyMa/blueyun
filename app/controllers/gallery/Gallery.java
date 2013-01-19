@@ -48,23 +48,9 @@ public class Gallery extends Controller {
 		List<Category> cats = Category.findChildrenByParentId(id, status );
 		PagingResult<Image> images = Image.findPageByCatId( id, pageId, status );
 
-		Category cat = null;
-		if ( id <= 0) {
-			cat = new Category();
-			cat.id = (long)-1;
-			cat.title = "所有照片";
-			cat.description = "这是所有照片";
-			if ( cats.size() > 0 ) {
-				cat.thumbnail = cats.get(0).thumbnail;
-			} else {
-				cat.thumbnail = "/assets/imgs/thumbnail.jpg";
-			}
-			if ( id == 0 )
-				cats.add(0, cat);
-		}
 		List<Category> catTree = Category.findAllParent( id );
 		
-		Category currentCat = id < 0 ? cat : null ;
+		Category currentCat = null ;
 		if ( catTree.size() > 0 ) {
 			currentCat = catTree.remove( catTree.size() - 1 );
 		} 
