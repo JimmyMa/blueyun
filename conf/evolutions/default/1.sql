@@ -22,7 +22,7 @@ create table gallerycats (
   foreign key (user_id) references account (id) on delete cascade on update restrict
 );
 
-create table galleryimage (
+create table galleryimage  (
   id                        bigint not null,
   title                     varchar(255),
   description               varchar(255),
