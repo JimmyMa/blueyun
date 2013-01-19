@@ -48,8 +48,9 @@ define([
         footerView.render();
 	};
 
-
     app_router.on('route:showGallery', function (catId, pageId) {
+        initPage();
+
         $("#page").unbind();
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId});
@@ -57,13 +58,15 @@ define([
     });
     
     app_router.on('route:showMyGallery', function (catId, pageId) {
+        initPage();
+
         $("#page").unbind();
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId, userId: sessionStorage.getItem('userid') });
-        initPage();
     });
     
     app_router.on('route:newUser', function () {
+       initPage();
     
        var registerFormView = new RegisterFormView();
    	   registerFormView.render();
@@ -75,10 +78,11 @@ define([
     });
     
     app_router.on('route:defaultAction', function (actions) {
+        initPage();
+
         console.log( "Action:" + actions );
         $("#page").unbind();
         var galleryMainView = new GalleryMainView({catId: 0, pageId: 1});
-        initPage();
 
     });
     

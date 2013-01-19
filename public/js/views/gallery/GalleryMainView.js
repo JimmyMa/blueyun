@@ -116,7 +116,7 @@ define([
 		    $( ".deleteImg" ).on( "click", function( e ) {
 		    	e.preventDefault();
 		    	var id = this.dataset.id;
-		    	var imageModel = new ImageModel( {id: id, userId: that.options.userId } );
+		    	var imageModel = new ImageModel( {id: id, userId: that.options.userId }, {action: "delete"} );
 		    	imageModel.destroy({success: function(model, response) {
 			    	that.categoryCollection.fetch({ success : that.onDataHandler });
 				}});

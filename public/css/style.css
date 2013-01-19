@@ -55,6 +55,11 @@
     padding: 7px 9px;
   }
   
+.mainPage{
+     min-height:700px;
+     height:auto !important;
+     height:700px; 
+}
 
 .align_center {
   text-align: center;
