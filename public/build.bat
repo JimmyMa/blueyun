@@ -1,0 +1,1 @@
+node ..\project\r.js -o build.js
