@@ -68,7 +68,7 @@ public class Util {
 		}
         if (im != null) {
         	File targetFile = new File(folder, fileName );
-            BufferedImage thumb = Scalr.resize(im,  Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH, wsize);
+            BufferedImage thumb = Scalr.resize(im, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, wsize);
             int height = thumb.getHeight();
             if ( height > hsize ) {
             	int x1 = ( height - hsize ) / 2;
