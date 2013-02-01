@@ -22,7 +22,7 @@ public class FileUpload {
 		
         BufferedImage im = ImageIO.read(file);
         
-		File targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 1000 );
+		File targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 1000,10000 );
 		if ( targetFile != null ) {
 			S3File s3File = new S3File();
 			s3File.file = targetFile;
@@ -33,7 +33,7 @@ public class FileUpload {
 			uploadedFile.size = targetFile.length();
 		}
 
-		targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 250 );
+		targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 250, 150 );
 		if ( targetFile != null ) {
 			S3File s3File = new S3File();
 			s3File.file = targetFile;

@@ -62,13 +62,18 @@ public class Util {
         return null;
 	}
 	
-	public static File scaleImage(BufferedImage im, String fileName, File folder, String mimetype, int size) throws IOException {
+	public static File scaleImage(BufferedImage im, String fileName, File folder, String mimetype, int wsize, int hsize) throws IOException {
 		if ( !folder.exists() ) {
 			folder.mkdirs();
 		}
         if (im != null) {
         	File targetFile = new File(folder, fileName );
-            BufferedImage thumb = Scalr.resize(im, size); 
+            BufferedImage thumb = Scalr.resize(im,  Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH, wsize);
+            int height = thumb.getHeight();
+            if ( height > hsize ) {
+            	int x1 = ( height - hsize ) / 2;
+            	thumb = Scalr.crop(thumb, 0, x1, wsize, hsize );
+            }
             FileOutputStream os = new FileOutputStream(targetFile);
             if (mimetype.endsWith("png")) {
                 ImageIO.write(thumb, "PNG" , os);
