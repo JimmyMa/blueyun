@@ -59,7 +59,7 @@ public class Category extends Model {
     		expr = expr.eq( "status", status );
     	}
     	
-    	return expr.findList();
+    	return expr.orderBy( "id desc"  ).findList();
     }
     
     public static List<Category> findChildrenByParentId(Long parentId, int status) {
@@ -71,7 +71,7 @@ public class Category extends Model {
     		expr = expr.eq( "status", status );
     	}
             
-        return expr.findList();
+        return expr.orderBy( "id desc"  ).findList();
     }
     
     public static List<Category> findAllParent(Long id) {

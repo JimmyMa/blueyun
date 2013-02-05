@@ -12,6 +12,7 @@ require.config({
     bootstrap: '/assets/js/libs/bootstrap/bootstrap',
     templates: '/assets/templates',
     'jquery.fileupload': '/assets/js/libs/fileupload/js/jquery.fileupload',
+    'jquery.fileupload-fp': 'libs/fileupload/js/jquery.fileupload-fp',
     'fileupload-ui': '/assets/js/libs/fileupload/js/jquery.fileupload-ui',
     tmpl: '/assets/js/libs/fileupload/js/tmpl.min',
     'load-image': '/assets/js/libs/fileupload/js/load-image.min',
