@@ -183,7 +183,9 @@ define([
 	    	window.app_router.navigate(that.rooturl + "cat/" + that.currentCat.id + "/" + this.text, {trigger: true}); 
 	    });
 	    
-	    
+	    if ( this.options.callback ) {
+	    	this.options.callback();
+	    }	    
         
         return this;
       },

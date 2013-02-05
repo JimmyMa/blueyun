@@ -51,12 +51,16 @@ define([
 
     app_router.on('route:showGallery', function (catId, pageId) {
         initPage();
+        
+        var callback = function() {
+        	utils.goTop();
+        };
 
         $("#page").unbind();
         pageId = pageId == undefined ? 1 : pageId; 
-        var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId});
+        var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId, callback: callback});
         galleryMainView.setElement($("#page"));
-        utils.goTop();
+        
 
     });
     
