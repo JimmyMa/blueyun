@@ -15,6 +15,7 @@
     'image-gallery': 'libs/imagegallery/bootstrap-image-gallery',
     'bootstrap-editable': 'libs/bootstrap-editable/js/bootstrap-editable',
     'app': 'app',
+    'uitls': 'utils',
     'router': 'router',
     'jquery.fileupload-fp': 'libs/fileupload/js/jquery.fileupload-fp',
     

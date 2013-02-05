@@ -8,10 +8,11 @@ define([
   'views/users/RegisterFormView',
   'views/gallery/GalleryMainView',
   'views/users/UserLoginView',
-  'views/users/UserActionsView'
+  'views/users/UserActionsView',
+  'utils',
 ], function($, _, Backbone, HomeView, 
 	FooterView, RegisterFormView, GalleryMainView, 
-	UserLoginView, UserActionsView) {
+	UserLoginView, UserActionsView, utils) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -55,6 +56,7 @@ define([
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId});
         galleryMainView.setElement($("#page"));
+        utils.goTop();
 
     });
     

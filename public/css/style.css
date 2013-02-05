@@ -2,6 +2,7 @@
    Primary styles
    Author: 
    ========================================================================== */
+   
 .container,
 .navbar-static-top .container,
 .navbar-fixed-top .container,
@@ -79,3 +80,35 @@
    max-width: 1200px;
 }
 
+.pic_frame {
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  padding: 10px 10px 10px 12px;
+}
+
+.pic_title_box {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
+    bottom: 0;
+    height: 43px;
+    left: 0;
+    line-height: 18px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    width: 250px;
+}
+
+
+.pic_wrapper {
+    background-color: #E6E6E6;
+    cursor: pointer;
+    position: relative;
+    min-height:150px; 
+}
+
+.pic_title {
+    color: #FFFFFF;
+    word-break: break-all;
+    word-wrap: break-word;
+    padding: 5px
+}

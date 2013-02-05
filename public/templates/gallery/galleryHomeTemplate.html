@@ -19,12 +19,18 @@ _.each( categories, function(category) { %>
 <%}
 i ++;
 %>
-	  <li class="span3"><a href="#/gallery/cat/<%=category.id%>">
-	    <div class="thumbnail">
-	      <img src="<%=category.thumbnail%>" alt="" class="img-polaroid">
-	      <h4><%=category.title%></h4>
-	      <p><%=category.description%></p>
-	    </div></a>
+	  <li class="span3">
+	    <div class="thumbnail align_center pic_frame">
+	      <div class="pic_wrapper">
+		      <a href="#/gallery/cat/<%=category.id%>"><img src="<%=category.thumbnail%>" alt=""></a>
+		      <div class="pic_title_box">
+		         <div class="pic_title">
+		         <%=category.title%><br>
+		         <%=category.description%>
+		         </div>
+		      </div>
+		  </div>
+	    </div>
 	  </li>
 <%if ( i % 4 == 0 ) {%>
 	</ul>
@@ -47,13 +53,20 @@ _.each( images, function(image) { %>
 i ++;
 %>
 	  <li class="span3">
-	    <div class="thumbnail align_center">
-	      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery" data-id="<%=image.id%>">
-	         <img src="<%=image.thumbnail%>" alt="" class="img-polaroid">
-	      </a>
-	      <h5><%=image.title == null ? "" : image.title%></h5>
-	      <p><%=image.description == null ? "" : image.description%></p>
+	    <div class="thumbnail align_center pic_frame">
+	      <div class="pic_wrapper">
+		      <a href="<%=image.location%>" title="<%=image.title%>" data-gallery="gallery" data-id="<%=image.id%>">
+		         <img src="<%=image.thumbnail%>" alt="">
+		      </a>
+		      <div class="pic_title_box">
+		         <div class="pic_title">
+		         <%=image.title == null ? "" : image.title%><br>
+		         <%=image.description == null ? "" : image.description%>
+		         </div>
+		      </div>
+		   </div>
 	    </div>
+    
 	  </li>
 <%if ( i % 4 == 0 ) {%>
 	</ul>
