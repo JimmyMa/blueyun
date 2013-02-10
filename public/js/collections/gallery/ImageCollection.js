@@ -15,6 +15,8 @@ define([
       url : function() {
       	  if ( this.action == "getPopImags" ) {
               return '/home/popimgs';
+          } if ( this.action == "getCatImags" ) {
+          	 return '/gallery/img/' + this.imgId;
           } else {
           
           }

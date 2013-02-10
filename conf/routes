@@ -16,7 +16,7 @@ GET    /gallery/cats/:catid/:pageId         controllers.gallery.Gallery.getCateg
 GET    /home/popimgs                        controllers.gallery.Gallery.getPopImages()
 GET    /gallery/img/faverite/:imgId         controllers.gallery.Gallery.addFaverite(imgId: Long)
 GET    /:userid/gallery/cats/:catid/:pageId  controllers.gallery.Gallery.getSecuredCategoriesByParentId(userid: Long, catid: Long, pageId: Int)
-# GET    /images/cat/:catId            controllers.gallery.Gallery.getImagesByCatId(catId: Long)
+GET    /gallery/img/:imgId            controllers.gallery.Gallery.getImages(imgId: Long)
 # GET    /:userid/images/cat/:catId    controllers.gallery.Gallery.getSecuredImagesByCatId(catId: Long)
 POST   /gallery/cat                  controllers.gallery.Gallery.createCategory()
 POST   /gallery/cat/:catId           controllers.gallery.Gallery.updateCategory(catId: Long)

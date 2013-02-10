@@ -5,7 +5,7 @@ define([
 
   var OwnerModel = Backbone.Model.extend({
 
-  		defaults : {
+  	  defaults : {
           query : "unknown"
       },  
 

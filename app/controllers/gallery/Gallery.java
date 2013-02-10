@@ -142,6 +142,25 @@ public class Gallery extends Controller {
         return ok(ControllersUtils.getSuccessMessage( "Deleted!"));
 	}
 	
+	public static Result getImages( Long id ) {
+		Image image = Image.find.byId( id );
+		
+		List<Image> images = Image.findByCatId(image.category.id, (long)0, Constants.PUBLIC);
+		List<Category> catTree = Category.findAllParent( image.category.id );
+		
+		Category currentCat = null ;
+		if ( catTree.size() > 0 ) {
+			currentCat = catTree.remove( catTree.size() - 1 );
+		}
+		
+		List result = new ArrayList();
+		result.add( images );
+		result.add( catTree );
+		result.add( currentCat );
+		
+        return ok( Json.toJson(result));
+	}
+	
 	public static Result addFaverite(Long imgId) {
     	Image img = Image.find.byId( imgId );
     	img.favorites = img.favorites + 1;

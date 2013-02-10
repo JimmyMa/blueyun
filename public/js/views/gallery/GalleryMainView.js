@@ -9,7 +9,6 @@ define([
   'views/gallery/NewCategoryView',
   'text!templates/gallery/galleryMainTemplate.html',
   'text!templates/gallery/galleryHomeTemplate.html',
-  'image-gallery',
   'bootstrap-editable'
 ], function($, _, Backbone, CategoryCollection, ImageModel, CategoryModel, ImageUploadView, 
     NewCategoryView, galleryMainTemplate, galleryHomeTemplate){
@@ -180,7 +179,20 @@ define([
 	    
 	    this.$( ".pagination ul > li > a" ).on( "click", function( e ) {
 	    	e.preventDefault();
-	    	window.app_router.navigate(that.rooturl + "cat/" + that.currentCat.id + "/" + this.text, {trigger: true}); 
+	    	if ( this.id == "prePage" ) {
+		    	var curentPage = that.pagingresult["currentPage"];
+		    	if ( curentPage > 1 ) { 
+		    		window.app_router.navigate(that.rooturl + "cat/" + that.currentCat.id + "/" + (curentPage-1), {trigger: true});
+		    	} 
+	    	} else if ( this.id == "nextPage" ) {
+		    	var curentPage = that.pagingresult["currentPage"];
+		    	var totalPages = that.pagingresult["totolPages"];
+		    	if ( curentPage < totalPages ) { 
+		    		window.app_router.navigate(that.rooturl + "cat/" + that.currentCat.id + "/" + (curentPage+1), {trigger: true});
+		    	} 
+	    	} else {
+	    		window.app_router.navigate(that.rooturl + "cat/" + that.currentCat.id + "/" + this.text, {trigger: true});
+	    	} 
 	    });
 	    
 	    if ( this.options.callback ) {

@@ -7,11 +7,12 @@ define([
   'views/footer/FooterView',
   'views/users/RegisterFormView',
   'views/gallery/GalleryMainView',
+  'views/gallery/ImageSliderView',
   'views/users/UserLoginView',
   'views/users/UserActionsView',
   'utils',
 ], function($, _, Backbone, HomeView, 
-	FooterView, RegisterFormView, GalleryMainView, 
+	FooterView, RegisterFormView, GalleryMainView, ImageSliderView,
 	UserLoginView, UserActionsView, utils) {
   
   var AppRouter = Backbone.Router.extend({
@@ -19,6 +20,7 @@ define([
       // Define some URL routes
       'gallery/cat/:catId/:pageId': 'showGallery',
       'gallery/cat/:catId': 'showGallery',
+      'gallery/img/:imgId': 'showImage',
       'mygallery/cat/:catId': 'showMyGallery',
       'mygallery/cat/:catId/:pageId': 'showMyGallery',
       'newuser': 'newUser',
@@ -64,6 +66,20 @@ define([
 
     });
     
+    app_router.on('route:showImage', function (imgId) {
+        initPage();
+        
+        var callback = function() {
+        	utils.goTop();
+        };
+
+        $("#page").unbind();
+        var imageSliderView = new ImageSliderView({imgId: imgId, callback: callback});
+		imageSliderView.setElement($("#page"));
+		
+		utils.initUYan( "gallery/img/" + imgId );
+    });
+    
     app_router.on('route:showMyGallery', function (catId, pageId) {
         initPage();
 
@@ -99,6 +115,7 @@ define([
         var homeView = new HomeView();
         homeView.setElement($("#page"));
 
+		utils.initUYan( "main" );
     });
     
     

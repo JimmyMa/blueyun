@@ -1,0 +1,38 @@
+<ul class="breadcrumb">
+  <li><a href="#/gallery/cat/0">相册</a><span class='divider'>/</span></li>
+<%
+_.each( catParents, function(parent) {
+  if ( parent.id != null ) {%> 
+  <li><a href="#/gallery/cat/<%=parent.id%>"><%=parent.title%></a><span class='divider'>/</span></li>
+  <%}
+});%>
+  <li><a href="#/gallery/cat/<%=currentCat.id%>"><%=currentCat.title%></a></li>
+</ul>
+
+<ul class="container">
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide thumbnail">
+      <div class="carousel-inner">
+
+<%var i = 0; 
+_.each( images, function(image)  { 
+        if ( image.id != null ) {%>
+        <div class="item <%= image.id == currentImgId ? "active" : "" %> ">
+          <img data-imgid="<%=image.id%>" <%= image.id == currentImgId ? "src" : "data-lazy-load-src"%>="<%=image.location%>" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1><%=image.title%></h1>
+              <p class="lead"><%=image.description%></p>
+            </div>
+          </div>
+        </div>
+<%
+       }
+   i ++;
+})%>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+</ul>

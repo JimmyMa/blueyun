@@ -8,8 +8,8 @@ import play.Logger;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import controllers.common.ControllersUtils;
 import views.html.index;
+import controllers.common.ControllersUtils;
 
 public class GlobalApp extends Controller {
 
