@@ -19,7 +19,7 @@ define([
       that.onDataHandler = function(collection) {
           that.render();
       }
-	  that.postModel = new PostModel( {postId: this.options.postId }, {action: "getPost"} ); 
+	  that.postModel = new PostModel( {id: this.options.postId }, {action: "getPost"} ); 
 	  that.postModel.fetch({ success : that.onDataHandler });
     },
 
