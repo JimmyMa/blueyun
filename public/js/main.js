@@ -12,13 +12,15 @@ require.config({
     bootstrap: '/assets/js/libs/bootstrap/bootstrap',
     templates: '/assets/templates',
     'jquery.fileupload': '/assets/js/libs/fileupload/js/jquery.fileupload',
-    'jquery.fileupload-fp': 'libs/fileupload/js/jquery.fileupload-fp',
+    'jquery.fileupload-fp': '/assets/js/libs/fileupload/js/jquery.fileupload-fp',
     'fileupload-ui': '/assets/js/libs/fileupload/js/jquery.fileupload-ui',
     tmpl: '/assets/js/libs/fileupload/js/tmpl.min',
     'load-image': '/assets/js/libs/fileupload/js/load-image.min',
     'canvas-to-blob': '/assets/js/libs/fileupload/js/canvas-to-blob.min',
     'image-gallery': '/assets/js/libs/imagegallery/bootstrap-image-gallery',
     'bootstrap-editable': '/assets/js/libs/bootstrap-editable/js/bootstrap-editable',
+    'kindeditor': '/assets/kindeditor/kindeditor-all-min',
+    'prettify': '/assets/kindeditor/plugins/code/prettify'
     
   }
 

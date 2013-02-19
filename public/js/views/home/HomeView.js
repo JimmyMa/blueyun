@@ -2,12 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/sidebar/SidebarView',
   'collections/gallery/ImageCollection',
   'views/gallery/GalleryMainView',
   'text!templates/home/homeTemplate.html',
   'text!templates/home/homeSlideTemplate.html'
-], function($, _, Backbone, SidebarView, ImageCollection, GalleryMainView, 
+], function($, _, Backbone, ImageCollection, GalleryMainView, 
 	homeTemplate, homeSlideTemplate){
 
   var HomeView = Backbone.View.extend({

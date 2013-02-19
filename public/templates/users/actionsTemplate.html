@@ -1,9 +1,20 @@
 <li><a href="#/mygallery/cat/0">我的相册</a></li>
 <li id="fat-menu" class="dropdown">
-  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>  <%=user.name%><b class="caret"></b></a>
+  <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">
+     <i class="icon-bold"></i>  Blog<b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+    <li><a href="#/blog/mgm/post"><i class="icon-edit"></i>  New Blog</a></li>
+    <li><a href="#/blog/mgm/posts"><i class="icon-th-list"></i>  管理Blog</a></li>
+  </ul>
+</li>
+<li id="fat-menu" class="dropdown">
+  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
+     <i class="icon-user"></i>  <%=user.name%><b class="caret"></b>
+  </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-    <li><a href="#"><i class="icon-pencil"></i>修改个人信息</a></li>
+    <li><a href="#"><i class="icon-pencil"></i>  修改个人信息</a></li>
     <li class="divider"></li>
-    <li><a tabindex="-1" href="#/exit">退出</a></li>
+    <li><a tabindex="-1" href="#/exit"><i class=" icon-off"></i>  退出</a></li>
   </ul>
 </li>

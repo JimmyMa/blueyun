@@ -38,9 +38,25 @@ create table galleryimage  (
   foreign key (user_id) references account (id) on delete cascade on update restrict
 );
 
+create table blogpost  (
+  id                        bigint not null,
+  title                     varchar(255),
+  content                   varchar(32768),
+  tags                      varchar(255),
+  create_date               timestamp,
+  user_id                   bigint,
+  status                    int,
+  comments                 int,
+  shared                 int,
+  thumbnail                 varchar(255),
+  constraint pk_blogpost primary key (id),
+  foreign key (user_id) references account (id) on delete cascade on update restrict
+);
+
 create sequence account_seq start with 1000;
 create sequence gallerycats_seq start with 1000;
 create sequence galleryimage_seq start with 1000;
+create sequence blogpost_seq start with 1000;
 
 # --- !Downs
 
@@ -52,5 +68,8 @@ drop sequence if exists gallerycats_seq;
 
 drop table if exists galleryimage;
 drop sequence if exists galleryimage_seq;
+
+drop table if exists blogpost;
+drop sequence if exists blogpost_seq;
 
 

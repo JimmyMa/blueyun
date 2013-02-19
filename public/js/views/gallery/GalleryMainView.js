@@ -5,12 +5,11 @@ define([
   'collections/gallery/CategoryCollection',
   'models/gallery/ImageModel',
   'models/gallery/CategoryModel',
-  'views/gallery/ImageUploadView',
   'views/gallery/NewCategoryView',
   'text!templates/gallery/galleryMainTemplate.html',
-  'text!templates/gallery/galleryHomeTemplate.html',
-  'bootstrap-editable'
-], function($, _, Backbone, CategoryCollection, ImageModel, CategoryModel, ImageUploadView, 
+  'text!templates/gallery/galleryHomeTemplate.html'
+  
+], function($, _, Backbone, CategoryCollection, ImageModel, CategoryModel, 
     NewCategoryView, galleryMainTemplate, galleryHomeTemplate){
   
   var GalleryMainView = Backbone.View.extend({
@@ -57,38 +56,10 @@ define([
 		} else {
 			compiledTemplate = _.template( galleryMainTemplate, data );
 			that.rooturl = "/mygallery/";
+			require( ['bootstrap-editable'] );
 		}
         this.$el.html( compiledTemplate ); 
         
-	    // Toggle fullscreen button:
-	    $('#toggle-fullscreen').button().click(function () {
-	        var button = $(this),
-	            root = document.documentElement;
-	        if (!button.hasClass('active')) {
-	            $('#modal-gallery').addClass('modal-fullscreen modal-fullscreen-stretch');
-	            if (root.webkitRequestFullScreen) {
-	                root.webkitRequestFullScreen(
-	                    window.Element.ALLOW_KEYBOARD_INPUT
-	                );
-	            } else if (root.mozRequestFullScreen) {
-	                root.mozRequestFullScreen();
-	            }
-	            setTimeout(function () {
-			    	$('#modal-gallery').modal('show');
-				}, 500);
-		        $('#modal-gallery').modal('hide');
-	        } else {
-	            $('#modal-gallery').removeClass('modal-fullscreen modal-fullscreen-stretch');
-	            (document.webkitCancelFullScreen ||
-	                document.mozCancelFullScreen ||
-	                $.noop).apply(document);
-	            setTimeout(function () {
-			    	$('#modal-gallery').modal('show');
-				}, 500);
-		        $('#modal-gallery').modal('hide');
-	        }
-	    });
-	    
 	    if ( this.options.userId != undefined ) {
 		    this.$( ".imgtitle" ).editable({
 			    type: 'text',
@@ -204,8 +175,10 @@ define([
       
       addImgs: function() {
         window.app_router.navigate(window.location.hash.substr(1) + "/addImgs", {trigger: false});
-      	var imageUploadView = new ImageUploadView({category: this.currentCat});
-      	imageUploadView.render();
+        require( ['views/gallery/ImageUploadView'], function(ImageUploadView) {
+	      	var imageUploadView = new ImageUploadView({category: this.currentCat});
+	      	imageUploadView.render();
+	      	});
       },
       
       addCat: function() {

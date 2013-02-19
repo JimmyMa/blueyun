@@ -10,10 +10,12 @@ define([
   'views/gallery/ImageSliderView',
   'views/users/UserLoginView',
   'views/users/UserActionsView',
+  'views/blog/PostsListView',
+  'views/blog/PostView',
   'utils',
 ], function($, _, Backbone, HomeView, 
 	FooterView, RegisterFormView, GalleryMainView, ImageSliderView,
-	UserLoginView, UserActionsView, utils) {
+	UserLoginView, UserActionsView, PostsListView, PostView, utils) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -23,6 +25,13 @@ define([
       'gallery/img/:imgId': 'showImage',
       'mygallery/cat/:catId': 'showMyGallery',
       'mygallery/cat/:catId/:pageId': 'showMyGallery',
+      
+      'blog/post/:postId': 'readPost',
+      'blog/posts': 'postsList',
+      'blog/mgm/post': 'newPost',
+      'blog/mgm/posts': 'postsmgm',
+      'blog/mgm/post/:postId': 'editPost',
+      
       'newuser': 'newUser',
       'exit': 'exit',
       
@@ -90,6 +99,61 @@ define([
         pageId = pageId == undefined ? 1 : pageId; 
         var galleryMainView = new GalleryMainView({catId: catId, pageId: pageId, userId: sessionStorage.getItem('userid') });
         galleryMainView.setElement($("#page"));
+    });
+    
+    
+    app_router.on('route:newPost', function () {
+        initPage();
+
+        $("#page").unbind();
+        
+        require( ['views/blog/NewPostView'], function(NewPostView) {
+        	var newPostView = new NewPostView();
+	        newPostView.setElement($("#page")).render();
+        });
+    });
+
+    
+    app_router.on('route:postsmgm', function () {
+        initPage();
+        
+        $("#page").unbind();
+        require( ['views/blog/PostsMgmView'], function(PostsMgmView) {
+        	var postsMgmView = new PostsMgmView();
+	        postsMgmView.setElement($("#page"));
+        });
+    });
+
+    app_router.on('route:editPost', function (postId) {
+        initPage();
+        
+        $("#page").unbind();
+        require( ['views/blog/EditPostView'], function(EditPostView) {
+        	var editPostView = new EditPostView({postId: postId});
+	        editPostView.setElement($("#page"));
+        });
+    });
+
+    app_router.on('route:readPost', function (postId) {
+        initPage();
+        
+        $('#main-menu li').removeClass('active');
+        $('#main-menu li a[href="#/blog/posts"]').parent().addClass('active');
+
+        $("#page").unbind();
+        var postView = new PostView({postId: postId, callback: utils.goTop});
+        postView.setElement($("#page"));
+    });
+    
+    app_router.on('route:postsList', function () {
+        initPage();
+        
+        $('#main-menu li').removeClass('active');
+        $('#main-menu li a[href="#/blog/posts"]').parent().addClass('active');
+        
+        $("#page").unbind();
+        var postsListView = new PostsListView();
+        postsListView.setElement($("#page")).render();
     });
     
     app_router.on('route:newUser', function () {

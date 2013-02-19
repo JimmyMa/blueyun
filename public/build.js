@@ -7,20 +7,22 @@
     backbone: 'libs/backbone/backbone-min',
     bootstrap: 'libs/bootstrap/bootstrap',
     templates: '../templates',
-    'jquery.fileupload': 'libs/fileupload/js/jquery.fileupload',
-    'fileupload-ui': 'libs/fileupload/js/jquery.fileupload-ui',
-    tmpl: 'libs/fileupload/js/tmpl.min',
-    'load-image': 'libs/fileupload/js/load-image.min',
-    'canvas-to-blob': 'libs/fileupload/js/canvas-to-blob.min',
-    'image-gallery': 'libs/imagegallery/bootstrap-image-gallery',
-    'bootstrap-editable': 'libs/bootstrap-editable/js/bootstrap-editable',
+    'jquery.fileupload': 'empty:',
+    'fileupload-ui': 'empty:',
+    tmpl: 'empty:',
+    'load-image': 'empty:',
+    'canvas-to-blob': 'empty:',
+    'image-gallery': 'empty:',
+    'bootstrap-editable': 'empty:',
     'app': 'app',
     'uitls': 'utils',
     'router': 'router',
-    'jquery.fileupload-fp': 'libs/fileupload/js/jquery.fileupload-fp',
-    
+    'jquery.fileupload-fp': 'empty:',
+    'kindeditor': 'empty:',
+    'prettify': '../kindeditor/plugins/code/prettify'
   },
+
     name: "main",
-    out: "main-built.js",
-    optimize: "uglify2"
+    out: "js/main-built.js",
+    optimize: "none"
 })

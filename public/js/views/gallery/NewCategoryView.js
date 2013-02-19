@@ -3,9 +3,8 @@ define([
   'underscore',
   'backbone',
   'models/gallery/CategoryModel',
-  'views/gallery/ImageUploadView',
   'text!templates/gallery/newCategoryTemplate.html'
-], function($, _, Backbone, CategoryModel, ImageUploadView, newCategoryTemplate){
+], function($, _, Backbone, CategoryModel, newCategoryTemplate){
   
   var NewCategoryView = Backbone.View.extend({
    
@@ -35,8 +34,10 @@ define([
         var des = this.$( "#catDes" ).val();
      	var categoryModel = new CategoryModel( {title: title, description: des, parentid: this.category.id }, {action: 'save'} );
      	categoryModel.save(null, {success : function(category) {
-	      	var imageUploadView = new ImageUploadView({category: category.toJSON()});
-	      	imageUploadView.render();
+	        require( ['views/gallery/ImageUploadView'], function(ImageUploadView) {
+		      	var imageUploadView = new ImageUploadView({category: category.toJSON()});
+		      	imageUploadView.render();
+		      	});
      	}});
      }
 

@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>标题</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+<%
+_.each( posts, function(post) { 
+var postHref = "#/blog/postmgm/" + post.id;
+%>
+
+    <tr>
+      <td><%=post.id%></td>
+      <td><%=post.title%></td>
+      <td>
+		<div class="btn-group" data-toggle="buttons-radio">
+		  <button type="button" data-postid="<%=post.id%>" data-status="1" class="changeStatus btn btn-success <%=post.status==1?"active":""%>">草稿</button>
+		  <button type="button" data-postid="<%=post.id%>" data-status="2" class="changeStatus btn btn-success <%=post.status==2?"active":""%>">发布</button>
+		  <button type="button" data-postid="<%=post.id%>" data-status="3" class="changeStatus btn btn-success <%=post.status==3?"active":""%>">过期</button>
+		</div>
+        <a href="#/blog/mgm/post/<%=post.id%>" class="editPost btn btn-success" type="button">编辑</a>
+      </td>
+    </tr>
+<%
+});%>
+</table>

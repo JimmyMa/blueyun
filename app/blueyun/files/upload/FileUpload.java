@@ -14,7 +14,7 @@ public class FileUpload {
 	
 	static String RootFolder = "/tmp/imgs/users/";
 
-	public static FileUploadResult uploadFile( File file, String fileName, String contentType, long userid ) throws IOException {
+	public static FileUploadResult uploadImageFile( File file, String fileName, String contentType, long userid, boolean needthumbnail ) throws IOException {
 		FileUploadResult result = new  FileUploadResult();
 		UploadedFile uploadedFile = new UploadedFile();
 
@@ -33,21 +33,42 @@ public class FileUpload {
 			uploadedFile.size = targetFile.length();
 		}
 
-		targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 250, 150 );
-		if ( targetFile != null ) {
-			S3File s3File = new S3File();
-			s3File.file = targetFile;
-			s3File.name = fileName;
-			s3File.userId = userid;
-			s3File.save();
-			uploadedFile.thumbnail_url = s3File.getUrl();
+		if( needthumbnail ) {
+			targetFile = Util.scaleImage( im, fileName, targetFolder, contentType, 250, 150 );
+			if ( targetFile != null ) {
+				S3File s3File = new S3File();
+				s3File.file = targetFile;
+				s3File.name = fileName;
+				s3File.userId = userid;
+				s3File.save();
+				uploadedFile.thumbnail_url = s3File.getUrl();
+			}
 		}
-
 		
 		
 		uploadedFile.name = fileName;
 		uploadedFile.delete_url = "delete";
 		uploadedFile.delete_type = "DELETE";
+		result.files.add(uploadedFile);
+		
+		return result;
+	}
+	
+	public static FileUploadResult uploadFile( File file, String fileName, long userid ) throws IOException {
+		FileUploadResult result = new  FileUploadResult();
+		UploadedFile uploadedFile = new UploadedFile();
+
+
+		S3File s3File = new S3File();
+		s3File.file = file;
+		s3File.name = fileName;
+		s3File.userId = userid;
+		s3File.save();
+		uploadedFile.url = s3File.getUrl();
+		uploadedFile.size = file.length();
+
+		
+		uploadedFile.name = fileName;
 		result.files.add(uploadedFile);
 		
 		return result;

@@ -1,0 +1,45 @@
+<%
+_.each( posts, function(post) { 
+var postHref = "#/blog/post/" + post.id;
+%>
+<div class="row">
+      <div class="span12">
+        <h4><strong><a href="<%=postHref%>"><%=post.title%></a></strong></h4>
+      </div>
+</div>
+<div class="row">
+      <%if ( post.thumbnail != null ) {%>
+      <div class="span2">
+        <a href="<%=postHref%>" class="thumbnail">
+            <img src="<%=post.thumbnail%>" alt="">
+        </a>
+      </div>
+      <div class="span10">
+      <%} else {%>
+      <div class="span12">
+      <%}%>      
+        <p>
+          <%=post.content%>
+        </p>
+        <p><a class="btn" href="<%=postHref%>">Read more</a></p>
+      </div>
+</div>
+    <div class="row">
+      <div class="span12">
+        <p></p>
+        <p>
+          <!--i class="icon-user"></i> by <a href="#">John</a--> 
+          <!--|--> <i class="icon-calendar"></i> <%=post.create_date%>
+          <!--| <i class="icon-comment"></i> <a href="#">3 Comments</a-->
+          <!--| <i class="icon-share"></i> <a href="#">39 Shares</a-->
+          | <i class="icon-tags"></i> Tags : 
+          <%
+			_.each( post.tagsList, function(tag) { 
+          %>
+          <a href="#"><span class="label label-info"><%=tag%></span></a> 
+          <%});%>
+        </p>
+      </div>
+    </div>
+<hr>
+<%});%>

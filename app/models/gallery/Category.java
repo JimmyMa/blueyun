@@ -63,8 +63,8 @@ public class Category extends Model {
     }
     
     public static List<Category> findChildrenByParentId(Long parentId, int status) {
-    	Logger.info( "UserId: " + User.findAll().size() );
-    	Logger.info( "parentId: " + Category.find.all().size() );
+//    	Logger.info( "UserId: " + User.findAll().size() );
+//    	Logger.info( "parentId: " + Category.find.all().size() );
     	ExpressionList<Category> expr =  Category.find.where()
             .eq("parentId", parentId);
     	if ( status != Constants.ALL ) {
