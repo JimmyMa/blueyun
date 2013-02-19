@@ -1,6 +1,6 @@
 define([
   'jquery',
-  'underscore',
+  'underscore', 
   'backbone',
   'models/blog/PostModel',
   'text!templates/blog/newPostTemplate.html',
