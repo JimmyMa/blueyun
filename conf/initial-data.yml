@@ -1,11 +1,1 @@
 
-# Users
-
-users:
-
-    - !!models.User
-        id:         1
-        email:      yunfengjv@sina.com
-        name:       Jimmy Ma
-        password:   111
-

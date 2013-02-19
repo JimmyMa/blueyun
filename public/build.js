@@ -24,5 +24,5 @@
 
     name: "main",
     out: "js/main-built.js",
-    optimize: "none"
+    optimize: "uglify2"
 })
