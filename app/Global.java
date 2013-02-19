@@ -13,7 +13,7 @@ import com.avaje.ebean.Ebean;
 public class Global extends GlobalSettings {
     
     public void onStart(Application app) {
-        InitialData.insert(app);
+        InitialData.insert(app); 
         Logger.info( "Root: " + System.getProperty("user.dir") );
     }
     
