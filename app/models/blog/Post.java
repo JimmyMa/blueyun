@@ -62,4 +62,16 @@ public class Post extends Model {
 		}
 		super.save();
 	}
+    
+    @Override
+	public void update() {
+		if ( content.contains( "<img src=\"" ) ) {
+//			Logger.info( "content:" + content );
+			int start = content.indexOf("<img src=\"" ) + 10;
+			int end = content.indexOf( "\"", start );
+//			Logger.info( "start:" + start + " end:" + end );
+			thumbnail = content.substring( start, end );
+		}
+		super.save();
+	}
 }

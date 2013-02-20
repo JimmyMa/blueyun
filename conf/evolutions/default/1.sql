@@ -59,17 +59,19 @@ create sequence galleryimage_seq start with 1000;
 create sequence blogpost_seq start with 1000;
 
 # --- !Downs
-
-drop table if exists account;
-drop sequence if exists account_seq;
-
-drop table if exists gallerycats;
-drop sequence if exists gallerycats_seq;
+drop table if exists blogpost;
+drop sequence if exists blogpost_seq;
 
 drop table if exists galleryimage;
 drop sequence if exists galleryimage_seq;
 
-drop table if exists blogpost;
-drop sequence if exists blogpost_seq;
+drop table if exists gallerycats;
+drop sequence if exists gallerycats_seq;
+
+drop table if exists account;
+drop sequence if exists account_seq;
+
+
+
 
 
