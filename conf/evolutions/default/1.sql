@@ -19,7 +19,7 @@ create table gallerycats (
   user_id                   bigint,
   status                    int,
   constraint pk_gallerycats primary key (id),
-  foreign key (user_id) references account (id) on delete cascade on update restrict
+  foreign key (user_id) references account (id)
 );
 
 create table galleryimage  (
@@ -34,8 +34,8 @@ create table galleryimage  (
   status                    int,
   favorites                 int,
   constraint pk_galleryimage primary key (id),
-  foreign key (category_id) references gallerycats (id) on delete cascade on update restrict,
-  foreign key (user_id) references account (id) on delete cascade on update restrict
+  foreign key (category_id) references gallerycats (id),
+  foreign key (user_id) references account (id)
 );
 
 create table blogpost  (
@@ -50,7 +50,7 @@ create table blogpost  (
   shared                 int,
   thumbnail                 varchar(255),
   constraint pk_blogpost primary key (id),
-  foreign key (user_id) references account (id) on delete cascade on update restrict
+  foreign key (user_id) references account (id)
 );
 
 create sequence account_seq start with 1000;
