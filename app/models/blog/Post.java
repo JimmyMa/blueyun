@@ -72,6 +72,6 @@ public class Post extends Model {
 //			Logger.info( "start:" + start + " end:" + end );
 			thumbnail = content.substring( start, end );
 		}
-		super.save();
+		super.update();
 	}
 }
